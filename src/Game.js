@@ -12,10 +12,8 @@ const Game = () => {
     const checkAnswer = (e) => {
 
         if(e.target.innerText === 'Apa'){
-            console.log("Rätt!")
             setText('Rätt!')
         } else {
-            console.log("Fel!")
             setText('Fel!')
         }
     }
