@@ -61,10 +61,7 @@ const Game = () => {
 
     return (
         <div className= "Game" style={{ fontSize: "30px" }}>
-            <div className="question"> 
-                <p >Vad heter bollen som används i fotboll?</p>
-                
-            </div>
+            
             <div className="figure" style={{
                 fontSize: "30px",
                 marginBottom: "10px"
@@ -78,6 +75,9 @@ const Game = () => {
                 </IconContext.Provider>
                
                
+            </div>
+            <div className="question"> 
+                <p >Vad heter apan?</p>
             </div>
             <div className="text">
                <button value="Apa" onClick={(e)=> checkAnswer(e)}>Apa</button>

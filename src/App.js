@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Login from './Login';
 import Game from './Game';
 import Category from './Category';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -18,14 +19,17 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/game">
-              <Game />
-            </Route>
+            <Route exact path="/login" >
+              <Login />
+            </ Route>
             <Route exact path="/category">
               <Category />
             </Route>
             <Route exact path="/difficulty">
               <Difficulty />
+            </Route>
+            <Route exact path="/game">
+              <Game />
             </Route>
 
           </Switch>

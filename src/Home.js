@@ -9,7 +9,7 @@ const Home = () => {
         }}>HOME Component!
           <p>Hello från Naoya.This is under "content" tag</p>
           <h1>Welcome to Quizman!</h1>
-          <Link to="/category">
+          <Link to="/login">
             <button className="startButton">Start the game</button>
           </Link>
         </div>
