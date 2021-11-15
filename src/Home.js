@@ -10,7 +10,7 @@ const Home = () => {
           <p>Hello från Naoya.This is under "content" tag</p>
           <h1>Welcome to Quizman!</h1>
           <Link to="/login">
-            <button className="startButton">Start the game</button>
+            <button className="startButton">To Login page</button>
           </Link>
         </div>
     );

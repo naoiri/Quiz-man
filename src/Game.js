@@ -80,7 +80,7 @@ const Game = () => {
                 <p >Vad heter apan?</p>
             </div>
             <div className="text">
-               <button value="Apa" onClick={(e)=> checkAnswer(e)}>Apa</button>
+               <button onClick={(e)=> checkAnswer(e)}>Apa</button>
                <button onClick={(e)=> checkAnswer(e)}>Bpa</button>
                <button onClick={(e)=> checkAnswer(e)}>Cpa</button>
                <button onClick={(e)=> checkAnswer(e)}>Dpa</button>
