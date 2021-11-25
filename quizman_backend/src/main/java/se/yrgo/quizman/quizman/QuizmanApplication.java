@@ -17,7 +17,7 @@ public class QuizmanApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(QuizmanApplication.class, args);
 	}
-	//(())
+	
 	public void run(String ... args) {
 		String sql = ("SELCECT * FROM palyers");
 		List<Player> players = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Player.class));
