@@ -20,7 +20,7 @@ public class QuizmanApplication implements CommandLineRunner {
 	//(())
 	public void run(String ... args) {
 		String sql = ("SELCECT * FROM palyers");
-		List<User> players = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(User.class));
+		List<Player> players = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Player.class));
 		players.forEach(System.out :: println);
 
 }

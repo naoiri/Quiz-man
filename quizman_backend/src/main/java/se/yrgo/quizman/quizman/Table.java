@@ -1,5 +1,5 @@
 package se.yrgo.quizman.quizman;
 
-public @interface Table {
+public @interface Table  {
     String name();
 }
