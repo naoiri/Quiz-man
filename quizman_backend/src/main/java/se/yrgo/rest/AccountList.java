@@ -1,26 +1,26 @@
 package se.yrgo.rest;
 
-import se.yrgo.domain.User;
+import se.yrgo.domain.Account;
 
 import java.util.List;
 
-public class UserList {
+public class AccountList {
 
-    private List<User> users;
+    private List<Account> accounts;
 
-    public UserList() {};
+    public AccountList() {};
 
-    public UserList(List<User> users) {
-        this.users = users;
+    public AccountList(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     //@XmlElement(name="vehicle")
-    public List<User> getUsers() {
-        return users;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
 }
