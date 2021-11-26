@@ -32,7 +32,7 @@ function App() {
             <Route exact path="/game">
               <Game />
             </Route>
-            <Route  exact path="accounts">
+            <Route exact path="/account">
               <Account />
             </Route>
 
