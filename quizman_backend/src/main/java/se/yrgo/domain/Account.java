@@ -13,7 +13,7 @@ public class Account {
     private Long id;
     private String email;
     private String password;
-    private int highScore;
+    private int highscore;
 
     public Account(){}
 
@@ -41,11 +41,11 @@ public class Account {
         this.password = password;
     }
 
-    public int getHighScore() {
-        return highScore;
+    public int getHighscore() {
+        return highscore;
     }
 
-    public void setHighScore(int highScore) {
-        this.highScore = highScore;
+    public void setHighscore(int highscore) {
+        this.highscore = highscore;
     }
 }
