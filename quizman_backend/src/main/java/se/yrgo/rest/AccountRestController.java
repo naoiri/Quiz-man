@@ -3,20 +3,20 @@ package se.yrgo.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import se.yrgo.data.UserRepository;
-import se.yrgo.domain.User;
+import se.yrgo.data.AccountRepository;
+import se.yrgo.domain.Account;
 
 import java.util.List;
 
 @RestController
-public class UserRestController {
+public class AccountRestController {
 
     @Autowired
-    public UserRepository data;
+    public AccountRepository data;
 
-    @RequestMapping("/users")
-    public UserList allUsers(){
-        List<User> users = data.findAll();
-        return new UserList(users);
+    @RequestMapping("/accounts")
+    public AccountList allAccounts(){
+        List<Account> accounts = data.findAll();
+        return new AccountList(accounts);
     }
 }
