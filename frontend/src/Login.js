@@ -21,21 +21,17 @@ function Login () {
       
       console.log(account[0].email.trim(), account[0].password.trim())
       
-      if(account[0].email.trim() === e.target.email.value ){
-        console.log("Welcome!")
-      } else {
-        console.log("Bad")
-      }
-
-      /*
       for(let i = 0; i<account.length; i++){
-         if(account[i].email === email){
-           if(account[i].password === password){
-             console.log("Welcome!");
-           }
-         }
-      }*/
-
+        if(account[i].email.trim() === e.target.email.value ){
+          if(account[i].password.trim() === e.target.password.value){
+            console.log("Access granted, welcome!")
+  
+          }
+        } else {
+          console.log("Access deenied")
+        }
+  
+      }
     }
   
     return ( 
