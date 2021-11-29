@@ -24,7 +24,7 @@ function Login () {
       for(let i = 0; i<account.length; i++){
         if(account[i].email.trim() === e.target.email.value ){
           if(account[i].password.trim() === e.target.password.value){
-            console.log("Access granted, welcome!")
+            console.log("Welcome " + email + ", access granted!")
   
           }
         } else {
