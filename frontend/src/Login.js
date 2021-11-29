@@ -1,29 +1,52 @@
 import { Link } from 'react-router-dom';
-const Login = () => {
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+
+function Login () {
+    
+    const url = 'http://localhost:8080/accounts';
+    const [account, setAccount] = useState('xxx')
+
+    useEffect(() => {
+        axios.get(url).then(response => {
+            setAccount(response.data.accounts)
+        })
+    }, [url])
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+      console.log(email, password)
+      
+      console.log(account[0].email.trim(), account[0].password.trim())
+      
+      if(account[0].email.trim() === e.target.email.value ){
+        console.log("Welcome!")
+      } else {
+        console.log("Bad")
+      }
+
+      /*
+      for(let i = 0; i<account.length; i++){
+         if(account[i].email === email){
+           if(account[i].password === password){
+             console.log("Welcome!");
+           }
+         }
+      }*/
+
+    }
+  
     return ( 
-      <div className="header">
-        <h1>Welcome to the Gallows!</h1>
-        <div className="content">
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" placeholder="Username"/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="text" name="password" placeholder="Password"/>
-            </div>
-          </div>
-        </div>
-        <div className="footer">
-          <Link to="/category" >
-            <button type="button" className="btn">
-              Login
-            </button>
-          </Link>
-        </div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="email" placeholder="email"></input>
+          <input type="text" name="password" placeholder="password"></input>
+          <button>Submit</button>
+        </form>
       </div>
-     );
+    )
 }
  
 export default Login;
