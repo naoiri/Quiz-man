@@ -13,18 +13,19 @@ function Login () {
         })
     }, [url])
 
+    const [text, setText] = useState('')
+
     const handleSubmit = (e) => {
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;
-      console.log(email, password)
       
-      console.log(account[0].email.trim(), account[0].password.trim())
       
       for(let i = 0; i<account.length; i++){
         if(account[i].email.trim() === e.target.email.value ){
           if(account[i].password.trim() === e.target.password.value){
             console.log("Welcome " + email + ", access granted!")
+            setText("Welcome " + email + ", access granted!")
   
           }
         } else {
@@ -40,6 +41,7 @@ function Login () {
           <input type="text" name="email" placeholder="email"></input>
           <input type="text" name="password" placeholder="password"></input>
           <button>Submit</button>
+          <div>{text}</div>
         </form>
       </div>
     )
