@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Difficulty from './Difficulty';
 import Account from './Account';
+import CreateUser from './CreateUser';
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
             </ Route>
             <Route exact path="/category">
               <Category />
+            </Route>
+            <Route exact path="/createuser">
+              <CreateUser />
             </Route>
             <Route exact path="/difficulty">
               <Difficulty />
