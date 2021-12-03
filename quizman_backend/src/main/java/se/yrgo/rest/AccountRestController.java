@@ -24,7 +24,7 @@ public class AccountRestController {
         return new AccountList(accounts);
     }
 
-    @RequestMapping(value = "/accounts/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/accounts", method = RequestMethod.POST)
     public ResponseEntity createUser(@RequestBody Account account) {
         data.save(account);
         return new ResponseEntity<>(account, HttpStatus.CREATED);
