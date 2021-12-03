@@ -38,8 +38,8 @@ function Login () {
     return ( 
       <div>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="email" placeholder="email"></input>
-          <input type="text" name="password" placeholder="password"></input>
+          <input type="text" name="email" placeholder="email"/>
+          <input type="text" name="password" placeholder="password"/>
           <button>Submit</button>
           <div>{text}</div>
         </form>
