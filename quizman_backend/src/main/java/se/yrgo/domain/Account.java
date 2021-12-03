@@ -3,7 +3,6 @@ package se.yrgo.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="accounts")
 public class Account {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
