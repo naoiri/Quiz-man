@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 function Login () {
     
     const url = 'http://localhost:8080/accounts';
-    const [account, setAccount] = useState('xxx')
+    const [account, setAccount] = useState('')
 
     useEffect(() => {
         axios.get(url).then(response => {
@@ -16,20 +16,20 @@ function Login () {
     const [text, setText] = useState('')
 
     const handleSubmit = (e) => {
+        //console.log(e)
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;
       
       
       for(let i = 0; i<account.length; i++){
-        if(account[i].email.trim() === e.target.email.value ){
-          if(account[i].password.trim() === e.target.password.value){
-            console.log("Welcome " + email + ", access granted!")
+        if(account[i].email.trim() === email){
+          if(account[i].password.trim() === password){
+
             setText("Welcome " + email + ", access granted!")
-  
           }
         } else {
-          console.log("Access deenied")
+          setText("Access denied")
         }
   
       }
@@ -43,6 +43,10 @@ function Login () {
           <button>Submit</button>
           <div>{text}</div>
         </form>
+          <Link to="/createuser">
+          <button>Create User</button>
+              <button className="startButton">Create New User</button>
+          </Link>
       </div>
     )
 }
