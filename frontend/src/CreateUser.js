@@ -7,7 +7,7 @@ function CreateUser() {
         axios.post('http://localhost:8080/accounts', {
             email: e.target.email.value,
             password: e.target.password.value,
-            highscore: 10000
+            highscore: 0
         }).then(function (response) {
             console.log(response);
         })
@@ -25,6 +25,3 @@ function CreateUser() {
     );
 }
 export default CreateUser;
-
-
-
