@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Login () {
     
     const url = 'http://localhost:8080/accounts';
-    const [account, setAccount] = useState('xxx')
+    const [account, setAccount] = useState('')
+    const [login, setLogin] = useState(false);
 
     useEffect(() => {
         axios.get(url).then(response => {
@@ -17,19 +18,19 @@ function Login () {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      const email = e.target.email.value;
-      const password = e.target.password.value;
-      
-      
+
+      const typedEmail = e.target.email.value;
+      const typedPassword = e.target.password.value;
+
       for(let i = 0; i<account.length; i++){
-        if(account[i].email.trim() === e.target.email.value ){
-          if(account[i].password.trim() === e.target.password.value){
-            console.log("Welcome " + email + ", access granted!")
-            setText("Welcome " + email + ", access granted!")
-  
+        if(account[i].email.trim() === typedEmail ){
+          if(account[i].password.trim() === typedPassword){
+            setText("Welcome " + typedEmail + ", access granted!");
+            setLogin(true);
+            break;
           }
         } else {
-          console.log("Access deenied")
+          setText("Access denied")
         }
   
       }
@@ -38,10 +39,15 @@ function Login () {
     return ( 
       <div>
         <form onSubmit={handleSubmit}>
-          <input type="text" name="email" placeholder="email"></input>
-          <input type="text" name="password" placeholder="password"></input>
+          <input type="text" name="email" placeholder="email"/>
+          <input type="password" name="password" placeholder="password"/>
           <button>Submit</button>
           <div>{text}</div>
+            <div>
+                {login &&
+                <Link to="/category" >
+                 <button>To category page</button></Link>}
+            </div>
         </form>
       </div>
     )
