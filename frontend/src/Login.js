@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function Login () {
+const Login = () => {
     
     const url = 'http://localhost:8080/accounts';
     const [account, setAccount] = useState('')
