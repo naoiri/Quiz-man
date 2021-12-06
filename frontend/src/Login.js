@@ -1,5 +1,23 @@
 import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import axios from 'axios';
+
+import { useState } from "react";
 const Login = () => {
+  const url = 'http://localhost:8080/accounts';
+  const [account, setAccount] = useState('xxx')
+  const [email, setEmail] = useState('xxx')
+  const [password, setPassword] = useState('xxx')
+
+  useEffect(() => {
+      axios.get(url).then(response => {
+          console.log("Maybe working now")
+          setAccount(response.data.accounts)
+          console.log(account[0].email);
+          console.log("YEa boiiii")
+
+      })
+  }, [url])
     return ( 
       <div className="header">
         <h1>Welcome to the Gallows!</h1>
@@ -11,7 +29,7 @@ const Login = () => {
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="text" name="password" placeholder="Password"/>
+              <input type="password" name="password" placeholder="Password"/>
             </div>
           </div>
         </div>

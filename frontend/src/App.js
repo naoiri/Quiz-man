@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Difficulty from './Difficulty';
 import Account from './Account';
+import Test from './Test';
 
 function App() {
 
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route exact path="/account">
               <Account />
+            </Route>
+            <Route exact path="/test">
+              <Test />
             </Route>
 
           </Switch>

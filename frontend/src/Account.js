@@ -10,7 +10,10 @@ function Account() {
 
     useEffect(() => {
         axios.get(url).then(response => {
+            console.log("Maybe working now")
             setAccount(response.data.accounts)
+            console.log(account[0].email);
+            console.log("YEa boiiii")
 
         })
     }, [url])
@@ -18,15 +21,6 @@ function Account() {
 
     return (
         <div>
-            <h1>{account[0].id}</h1>
-            <h1>{account[0].email}</h1>
-            <h1>{account[0].password}</h1>
-            <h1>{account[0].highscore}</h1>
-
-            <h1>{account[1].id}</h1>
-            <h1>{account[1].email}</h1>
-            <h1>{account[1].password}</h1>
-            <h1>{account[1].highscore}</h1>
         </div>
     )
 
