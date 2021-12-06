@@ -46,7 +46,7 @@ function Login () {
             <div>
                 {login &&
                 <Link to="/category" >
-                 <button>To category page</button></Link>}
+                 <button style={{backgroundColor: "red"}}>To category page</button></Link>}
             </div>
         </form>
       </div>
