@@ -17,6 +17,13 @@ public class Account {
 
     public Account(){}
 
+    public Account(Long id, String email, String password, int highscore) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.highscore = highscore;
+    }
+
     public Long getId() {
         return id;
     }
