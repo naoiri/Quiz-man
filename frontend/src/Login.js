@@ -30,7 +30,8 @@ const Login = () => {
             break;
           }
         } else {
-          setText("Access denied")
+            setText("Access denied")
+            setLogin(false)
         }
   
       }
