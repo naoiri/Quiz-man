@@ -1,47 +1,66 @@
-import { Link } from 'react-router-dom';
-import React, { useEffect } from "react";
 import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { useState } from "react";
 const Login = () => {
-  const url = 'http://localhost:8080/accounts';
-  const [account, setAccount] = useState('xxx')
-  const [email, setEmail] = useState('xxx')
-  const [password, setPassword] = useState('xxx')
+    
+    const url = 'http://localhost:8080/accounts';
 
-  useEffect(() => {
-      axios.get(url).then(response => {
-          console.log("Maybe working now")
-          setAccount(response.data.accounts)
-          console.log(account[0].email);
-          console.log("YEa boiiii")
+    const [accounts, setAccounts] = useState('')
+    const [login, setLogin] = useState(false);
 
-      })
-  }, [url])
+
+    useEffect(() => {
+        axios.get(url).then(response => {
+            setAccounts(response.data.accounts)
+        })
+    }, [url])
+
+    const [text, setText] = useState('')
+
+    const handleSubmit = (e) => {
+        //console.log(e)
+      e.preventDefault();
+
+
+      const typedEmail = e.target.email.value;
+      const typedPassword = e.target.password.value;
+
+      for(let i = 0; i<accounts.length; i++){
+        if(accounts[i].email.trim() === typedEmail ){
+          if(accounts[i].password.trim() === typedPassword){
+            setText("Welcome " + typedEmail + ", access granted!");
+            setLogin(true);
+            break;
+          }
+        } else {
+            setText("Access denied")
+            setLogin(false)
+
+     
+        }
+  
+      }
+    }
+  
     return ( 
-      <div className="header">
-        <h1>Welcome to the Gallows!</h1>
-        <div className="content">
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" placeholder="Username"/>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input type="email" name="email" placeholder="email"/>
+          <input type="password" name="password" placeholder="password"/>
+
+          <button>Submit</button>
+          <div>{text}</div>
+            <div>
+                {login &&
+                <Link to="/category" >
+                 <button style={{backgroundColor: "#40F934"}}>To category page</button></Link>}
             </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="Password"/>
-            </div>
-          </div>
-        </div>
-        <div className="footer">
-          <Link to="/category" >
-            <button type="button" className="btn">
-              Login
-            </button>
+        </form>
+          <Link to="/createuser">
+          <button>Create User</button>
           </Link>
-        </div>
       </div>
-     );
+    )
 }
- 
 export default Login;
