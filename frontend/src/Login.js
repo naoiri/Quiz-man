@@ -46,7 +46,7 @@ const Login = () => {
             <div>
                 {login &&
                 <Link to="/category" >
-                 <button style={{backgroundColor: "red"}}>To category page</button></Link>}
+                 <button style={{backgroundColor: "#40F934"}}>To category page</button></Link>}
             </div>
         </form>
       </div>
