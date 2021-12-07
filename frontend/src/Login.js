@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     
     const url = 'http://localhost:8080/accounts';
+
     const [accounts, setAccounts] = useState('')
     const [login, setLogin] = useState(false);
+
 
     useEffect(() => {
         axios.get(url).then(response => {
@@ -17,7 +19,9 @@ const Login = () => {
     const [text, setText] = useState('')
 
     const handleSubmit = (e) => {
+        //console.log(e)
       e.preventDefault();
+
 
       const typedEmail = e.target.email.value;
       const typedPassword = e.target.password.value;
@@ -32,6 +36,8 @@ const Login = () => {
         } else {
             setText("Access denied")
             setLogin(false)
+
+     
         }
   
       }
@@ -42,6 +48,7 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <input type="email" name="email" placeholder="email"/>
           <input type="password" name="password" placeholder="password"/>
+
           <button>Submit</button>
           <div>{text}</div>
             <div>
@@ -50,6 +57,10 @@ const Login = () => {
                  <button style={{backgroundColor: "#40F934"}}>To category page</button></Link>}
             </div>
         </form>
+          <Link to="/createuser">
+          <button>Create User</button>
+              <button className="startButton">Create New User</button>
+          </Link>
       </div>
     )
 }
