@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     
     const url = 'http://localhost:8080/accounts';
-    const [account, setAccount] = useState('')
+    const [accounts, setAccounts] = useState('')
     const [login, setLogin] = useState(false);
 
     useEffect(() => {
         axios.get(url).then(response => {
-            setAccount(response.data.accounts)
+            setAccounts(response.data.accounts)
         })
     }, [url])
 
@@ -22,9 +22,9 @@ const Login = () => {
       const typedEmail = e.target.email.value;
       const typedPassword = e.target.password.value;
 
-      for(let i = 0; i<account.length; i++){
-        if(account[i].email.trim() === typedEmail ){
-          if(account[i].password.trim() === typedPassword){
+      for(let i = 0; i<accounts.length; i++){
+        if(accounts[i].email.trim() === typedEmail ){
+          if(accounts[i].password.trim() === typedPassword){
             setText("Welcome " + typedEmail + ", access granted!");
             setLogin(true);
             break;
