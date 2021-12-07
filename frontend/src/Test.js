@@ -11,9 +11,11 @@ const Test = () => {
     const [answer2, setAnswer2] = useState("");
     const [answer3, setAnswer3] = useState("");
     const [answer4, setAnswer4] = useState("");
+    const [questionArray, setQuestionArray] = useState("");
     const [text, setText] = useState("");
     useEffect(() => {
         Axios.get(url).then(response => {
+            setQuestionArray(response.data.questionAnswers)
             setQuestion(response.data.questionAnswers[0].question);
             setCorrectAnswer(response.data.questionAnswers[0].correctAnswer)
             setAnswer2(response.data.questionAnswers[0].answer2)
@@ -23,6 +25,8 @@ const Test = () => {
     }, [url])
     const checkAnswer = (e) => {
         console.log(correctAnswer)
+        console.log(questionArray)
+        console.log(e)
 
         console.log(e.target.innerText)
         if(e.target.innerText === correctAnswer){
