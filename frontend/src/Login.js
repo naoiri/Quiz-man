@@ -59,10 +59,8 @@ const Login = () => {
         </form>
           <Link to="/createuser">
           <button>Create User</button>
-              <button className="startButton">Create New User</button>
           </Link>
       </div>
     )
 }
- 
 export default Login;
