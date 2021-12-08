@@ -3,6 +3,7 @@ package se.yrgo.quizman.quizman;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -11,10 +12,14 @@ import javax.persistence.GenerationType;
 public class Player {
     @Setter
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String email;
+
+    @Column(name = "login")
+    private  String login;
+
 
 
     public String getName() {

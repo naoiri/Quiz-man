@@ -12,6 +12,20 @@ function CreateUser() {
             console.log(response);
         })
     }
+    async function getData(e) {
+        await axios.get('http://localhost:8080/accounts', {
+            id: e.target.id.value,
+            password: e.target.password.value
+
+        })
+
+    }
+    //export default axios.create({
+        //baseURL:'http://localhost:8080/accounts',
+        //headers:{
+            //"Content-type": "application/json"
+       // }
+   // })
 
     return (
         <div>
@@ -21,7 +35,12 @@ function CreateUser() {
                 <input type="text" name="password" placeholder="password"/>
                 <button>Submit</button>
             </form>
+
+            <div>
+                <button onClick={getData}>Test</button>
+            </div>
         </div>
+
     );
 }
 export default CreateUser;
