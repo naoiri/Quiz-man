@@ -21,6 +21,16 @@ public class Account {
         this.highscore = highscore;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", highscore=" + highscore +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }
