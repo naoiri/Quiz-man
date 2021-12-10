@@ -11,31 +11,43 @@ const Game = () => {
     const [answer2, setAnswer2] = useState("");
     const [answer3, setAnswer3] = useState("");
     const [answer4, setAnswer4] = useState("");
-    const [questionArray, setQuestionArray] = useState([]);
+    //const [questionArray, setQuestionArray] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [text, setText] = useState("");
+    const [test, setTest] = useState("");
+    const [data, setData] = useState("");
 
     useEffect(() => {
         Axios.get(url).then(response => {
-            setQuestionArray(response.data.questionAnswers)
+            //setQuestionArray(response.data.questionAnswers)
+            setData(response.data.questionAnswers)
             setQuestion(response.data.questionAnswers[currentQuestion].question);
             setCorrectAnswer(response.data.questionAnswers[currentQuestion].correctAnswer)
             setAnswer2(response.data.questionAnswers[currentQuestion].answer2)
             setAnswer3(response.data.questionAnswers[currentQuestion].answer3)
             setAnswer4(response.data.questionAnswers[currentQuestion].answer4)
+
+            //setTest(response.data.questionAnswers[1].question)
+
         })
     }, [url])
 
 
     const handleAnswerButtonClick = () => {
-    const nextQuestion = currentQuestion + 1;
-    setCurrentQuestion(nextQuestion)
+        setCurrentQuestion(currentQuestion + 1)
+        setQuestion(data[currentQuestion].question);
+        console.log(question)
+        console.log(currentQuestion) //0
+        setCorrectAnswer(data[currentQuestion].correctAnswer)
+        setAnswer2(data[currentQuestion].answer2)
+        setAnswer3(data[currentQuestion].answer3)
+        setAnswer4(data[currentQuestion].answer4)
     }
     const checkAnswer = (e) => {
         console.log(correctAnswer)
-        console.log(questionArray)
         console.log(e)
         console.log(question)
+
 
         console.log(e.target.innerText)
         if(e.target.innerText === correctAnswer){
@@ -54,7 +66,6 @@ const Game = () => {
             <div className="grid-item grid-item-4"  onClick={handleAnswerButtonClick}>{answer3}</div>
             <div className="grid-item grid-item-5"  onClick={handleAnswerButtonClick}>{answer4}</div>
             <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
-            {questionArray.map(questionArray => <div className="grid-item grid-item-7">{questionArray.question}</div>)}
         </div>
     )
 }
