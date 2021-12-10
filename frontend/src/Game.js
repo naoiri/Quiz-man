@@ -11,37 +11,30 @@ const Game = () => {
     const [answer2, setAnswer2] = useState("");
     const [answer3, setAnswer3] = useState("");
     const [answer4, setAnswer4] = useState("");
-    //const [questionArray, setQuestionArray] = useState([]);
-    const [currentQuestion, setCurrentQuestion] = useState(0)
+    const [currentIndex, setCurrentIndex] = useState(0)
     const [text, setText] = useState("");
-    const [test, setTest] = useState("");
     const [data, setData] = useState("");
 
     useEffect(() => {
         Axios.get(url).then(response => {
-            //setQuestionArray(response.data.questionAnswers)
             setData(response.data.questionAnswers)
-            setQuestion(response.data.questionAnswers[currentQuestion].question);
-            setCorrectAnswer(response.data.questionAnswers[currentQuestion].correctAnswer)
-            setAnswer2(response.data.questionAnswers[currentQuestion].answer2)
-            setAnswer3(response.data.questionAnswers[currentQuestion].answer3)
-            setAnswer4(response.data.questionAnswers[currentQuestion].answer4)
-
-            //setTest(response.data.questionAnswers[1].question)
+            setQuestion(response.data.questionAnswers[currentIndex].question);
+            setCorrectAnswer(response.data.questionAnswers[currentIndex].correctAnswer)
+            setAnswer2(response.data.questionAnswers[currentIndex].answer2)
+            setAnswer3(response.data.questionAnswers[currentIndex].answer3)
+            setAnswer4(response.data.questionAnswers[currentIndex].answer4)
 
         })
     }, [url])
 
 
     const handleAnswerButtonClick = () => {
-        setCurrentQuestion(currentQuestion + 1)
-        setQuestion(data[currentQuestion].question);
-        console.log(question)
-        console.log(currentQuestion) //0
-        setCorrectAnswer(data[currentQuestion].correctAnswer)
-        setAnswer2(data[currentQuestion].answer2)
-        setAnswer3(data[currentQuestion].answer3)
-        setAnswer4(data[currentQuestion].answer4)
+        setCurrentIndex(currentIndex + 1)
+        setQuestion(data[currentIndex].question);
+        setCorrectAnswer(data[currentIndex].correctAnswer)
+        setAnswer2(data[currentIndex].answer2)
+        setAnswer3(data[currentIndex].answer3)
+        setAnswer4(data[currentIndex].answer4)
     }
     const checkAnswer = (e) => {
         console.log(correctAnswer)
