@@ -14,6 +14,7 @@ const Game = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [text, setText] = useState("");
     const [data, setData] = useState("");
+    const [scoreBoard, showScoreBoard] = useState(false)
 
     useEffect(() => {
         Axios.get(url).then(response => {
@@ -28,37 +29,46 @@ const Game = () => {
     }, [url])
 
 
-    const handleAnswerButtonClick = () => {
-        setCurrentIndex(currentIndex + 1)
-        setQuestion(data[currentIndex].question);
-        setCorrectAnswer(data[currentIndex].correctAnswer)
-        setAnswer2(data[currentIndex].answer2)
-        setAnswer3(data[currentIndex].answer3)
-        setAnswer4(data[currentIndex].answer4)
-    }
-    const checkAnswer = (e) => {
-        console.log(correctAnswer)
-        console.log(e)
-        console.log(question)
+    const handleAnswerButtonClick = (e) => {
 
-
-        console.log(e.target.innerText)
-        if(e.target.innerText === correctAnswer){
-            setText("Yeaboii")
+        if(e.target.innerText === correctAnswer.trim()){
+               setText("Correct!")
         }
         else{
-            setText("Noboii")
+               setText("Incorrect...")
+        }
+        setCurrentIndex(currentIndex + 1)
+        if(currentIndex < data.length){
+                setQuestion(data[currentIndex].question);
+                setCorrectAnswer(data[currentIndex].correctAnswer)
+                setAnswer2(data[currentIndex].answer2)
+                setAnswer3(data[currentIndex].answer3)
+                setAnswer4(data[currentIndex].answer4)
+        }
+        else{
+        showScoreBoard(true)
         }
 
+
+
     }
+
     return (
         <div className="grid-container">
-            <div className="grid-item grid-item-1" onClick={handleAnswerButtonClick}>{question}</div>
-            <div className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </div>
-            <div className="grid-item grid-item-3"  onClick={handleAnswerButtonClick}>{answer2}</div>
-            <div className="grid-item grid-item-4"  onClick={handleAnswerButtonClick}>{answer3}</div>
-            <div className="grid-item grid-item-5"  onClick={handleAnswerButtonClick}>{answer4}</div>
-            <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
+            {scoreBoard ? (
+                <div className="scoreBoard">Yea Boiii!</div>
+            )   :     (
+                <>
+                <div className="grid-item grid-item-1">{question}</div>
+                <div className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </div>
+                <div className="grid-item grid-item-3"  onClick={handleAnswerButtonClick}>{answer2}</div>
+                <div className="grid-item grid-item-4"  onClick={handleAnswerButtonClick}>{answer3}</div>
+                <div className="grid-item grid-item-5"  onClick={handleAnswerButtonClick}>{answer4}</div>
+                <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
+                </>
+
+            )}
+
         </div>
     )
 }
