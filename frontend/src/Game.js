@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 
 const Game = () => {
     const url = 'http://localhost:8080/questionAnswers';
+
     const [question, setQuestion] = useState("");
     const [correctAnswer, setCorrectAnswer] = useState("");
     const [answer2, setAnswer2] = useState("");
@@ -60,10 +61,10 @@ const Game = () => {
             )   :     (
                 <>
                 <div className="grid-item grid-item-1">{question}</div>
-                <div className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </div>
-                <div className="grid-item grid-item-3"  onClick={handleAnswerButtonClick}>{answer2}</div>
-                <div className="grid-item grid-item-4"  onClick={handleAnswerButtonClick}>{answer3}</div>
-                <div className="grid-item grid-item-5"  onClick={handleAnswerButtonClick}>{answer4}</div>
+                <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
+                <button className="grid-item grid-item-3"  onClick={handleAnswerButtonClick}>{answer2}</button>
+                <button className="grid-item grid-item-4"  onClick={handleAnswerButtonClick}>{answer3}</button>
+                <button className="grid-item grid-item-5"  onClick={handleAnswerButtonClick}>{answer4}</button>
                 <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
                 </>
 
