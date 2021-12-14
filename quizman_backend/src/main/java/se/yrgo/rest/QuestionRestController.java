@@ -19,4 +19,12 @@ public class QuestionRestController {
         List<QuestionAnswer> questionAnswers = data.findAll();
         return new QuestionList(questionAnswers);
     }
+
+    @RequestMapping("/questionAnswers/movies")
+    public QuestionList movieQuestionAnswers(){
+        List<QuestionAnswer> questionAnswers = data.getMovieQuestions();
+
+        return new QuestionList(questionAnswers);
+    }
+
 }
