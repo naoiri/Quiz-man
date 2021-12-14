@@ -1,11 +1,10 @@
 import Navbar from './Navbar';
 import Login from './Login';
-import Game from './Game';
 import Category from './Category';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Difficulty from './Difficulty';
-import Test from './Test';
+import Game from './Game';
 import CreateUser from './CreateUser';
 
 function App() {
@@ -35,9 +34,6 @@ function App() {
             </Route>
             <Route exact path="/game">
               <Game />
-            </Route>
-            <Route exact path="/test">
-              <Test />
             </Route>
 
           </Switch>
