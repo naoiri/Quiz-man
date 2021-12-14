@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 
 
 const Game = () => {
-    const url = 'http://localhost:8080/questionAnswers';
+    const [url, setUrl] = useState('')
 
     const [question, setQuestion] = useState("");
     const [correctAnswer, setCorrectAnswer] = useState("");
@@ -29,7 +29,6 @@ const Game = () => {
         })
     }, [url])
 
-
     const handleAnswerButtonClick = (e) => {
 
         if(e.target.innerText === correctAnswer.trim()){
@@ -47,7 +46,7 @@ const Game = () => {
                 setAnswer4(data[currentIndex].answer4)
         }
         else{
-        showScoreBoard(true)
+            showScoreBoard(true)
         }
 
 
@@ -55,21 +54,30 @@ const Game = () => {
     }
 
     return (
-        <div className="grid-container">
-            {scoreBoard ? (
-                <div className="scoreBoard">Yea Boiii!</div>
-            )   :     (
-                <>
-                <div className="grid-item grid-item-1">{question}</div>
-                <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
-                <button className="grid-item grid-item-3" onClick={handleAnswerButtonClick}>{answer2}</button>
-                <button className="grid-item grid-item-4" onClick={handleAnswerButtonClick}>{answer3}</button>
-                <button className="grid-item grid-item-5" onClick={handleAnswerButtonClick}>{answer4}</button>
-                <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
-                </>
+        <div>
+            <div>
+                Choose category
+                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/movies')}>Film</button>
+                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/sport')}>Sport</button>
+                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/biologi')}>Biologi</button>
 
-            )}
+            </div>
+            <div className="grid-container">
 
+                {scoreBoard ? (
+                    <div className="scoreBoard">Your score: </div>
+                )   :     (
+                    <>
+                    <div className="grid-item grid-item-1">{question}</div>
+                    <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
+                    <button className="grid-item grid-item-3" onClick={handleAnswerButtonClick}>{answer2}</button>
+                    <button className="grid-item grid-item-4" onClick={handleAnswerButtonClick}>{answer3}</button>
+                    <button className="grid-item grid-item-5" onClick={handleAnswerButtonClick}>{answer4}</button>
+                    <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
+                    </>
+
+                )}
+            </div>
         </div>
     )
 }
