@@ -62,9 +62,9 @@ const Game = () => {
                 <>
                 <div className="grid-item grid-item-1">{question}</div>
                 <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
-                <button className="grid-item grid-item-3"  onClick={handleAnswerButtonClick}>{answer2}</button>
-                <button className="grid-item grid-item-4"  onClick={handleAnswerButtonClick}>{answer3}</button>
-                <button className="grid-item grid-item-5"  onClick={handleAnswerButtonClick}>{answer4}</button>
+                <button className="grid-item grid-item-3" onClick={handleAnswerButtonClick}>{answer2}</button>
+                <button className="grid-item grid-item-4" onClick={handleAnswerButtonClick}>{answer3}</button>
+                <button className="grid-item grid-item-5" onClick={handleAnswerButtonClick}>{answer4}</button>
                 <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
                 </>
 
