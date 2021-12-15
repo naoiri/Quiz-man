@@ -1,6 +1,5 @@
 import Navbar from './Navbar';
 import Login from './Login';
-import Category from './Category';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Difficulty from './Difficulty';
@@ -23,9 +22,6 @@ function App() {
             <Route exact path="/login" >
               <Login />
             </ Route>
-            <Route exact path="/category">
-              <Category />
-            </Route>
             <Route exact path="/createuser">
               <CreateUser />
             </Route>
