@@ -62,14 +62,14 @@ const Game = () => {
         <div>
             {chosenCategory==null ? (
                 <div >
-                Choose category
+                    <h1>Choose category</h1>
                     <button onClick={handleCategory}>Movie</button>
                     <button onClick={handleCategory}>Sport</button>
                     <button onClick={handleCategory}>Biology</button>
                 </div>
             ):(
                 <div>
-                    <div>You have chosen the category: {chosenCategory}</div>
+                    <h1>Category: {chosenCategory}</h1>
                     <div className="grid-container">
 
                         {scoreBoard ? (

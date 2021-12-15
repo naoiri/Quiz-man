@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class QuestionRestController {
 
     @Autowired
-    public QuestionRepository data;
+    private QuestionRepository data;
 
     @RequestMapping("/questionAnswers")
     public QuestionList allQuestionAnswers(){
