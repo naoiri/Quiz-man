@@ -57,9 +57,9 @@ const Game = () => {
         <div>
             <div>
                 Choose category
-                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/movies')}>Film</button>
+                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/movie')}>Film</button>
                 <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/sport')}>Sport</button>
-                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/biologi')}>Biologi</button>
+                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/biology')}>Biologi</button>
 
             </div>
             <div className="grid-container">
