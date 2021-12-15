@@ -52,7 +52,7 @@ const Game = () => {
 
     }
 
-    const handleCategoryButtons = (e) =>{
+    const handleCategory = (e) =>{
         const category = e.target.innerText.toLowerCase();
         setUrl('http://localhost:8080/questionAnswers/'+ category);
         setChosenCategory(category);
@@ -63,9 +63,9 @@ const Game = () => {
             {chosenCategory==null ? (
                 <div >
                 Choose category
-                    <button onClick={handleCategoryButtons}>Movie</button>
-                    <button onClick={handleCategoryButtons}>Sport</button>
-                    <button onClick={handleCategoryButtons}>Biology</button>
+                    <button onClick={handleCategory}>Movie</button>
+                    <button onClick={handleCategory}>Sport</button>
+                    <button onClick={handleCategory}>Biology</button>
                 </div>
             ):(
                 <div>
