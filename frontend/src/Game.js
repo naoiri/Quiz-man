@@ -50,8 +50,6 @@ const Game = () => {
             showScoreBoard(true)
         }
 
-
-
     }
 
     return (
@@ -59,40 +57,46 @@ const Game = () => {
             {chosenCategory==null ? (
                 <div >
                 Choose category
-                <button onClick={()=>{
-                    setUrl('http://localhost:8080/questionAnswers/movie');
-                    setChosenCategory('Film');
-                }}>Film</button>
-                <button onClick={()=>{
-                    setUrl('http://localhost:8080/questionAnswers/sport')
-                    setChosenCategory('Sport')
-                }}>Sport</button>
-                <button onClick={()=>{
-                    setUrl('http://localhost:8080/questionAnswers/biology')
-                    setChosenCategory('Biology')
-                }}>Biologi</button>
+                    <button onClick={()=>{
+                        setUrl('http://localhost:8080/questionAnswers/movie');
+                        setChosenCategory('Film');
+                    }}>Film</button>
+                    <button onClick={()=>{
+                        setUrl('http://localhost:8080/questionAnswers/sport')
+                        setChosenCategory('Sport')
+                    }}>Sport</button>
+                    <button onClick={()=>{
+                        setUrl('http://localhost:8080/questionAnswers/biology')
+                        setChosenCategory('Biology')
+                    }}>Biologi</button>
 
                 </div>
             ):(
-                <div>{chosenCategory}</div>
+                <div>
+                    <div>You have chosen the category: {chosenCategory}</div>
+                    <div className="grid-container">
+
+                        {scoreBoard ? (
+                            <div className="scoreBoard">Your score: </div>
+                        )   :     (
+                            <>
+                                <div className="grid-item grid-item-1">{question}</div>
+                                <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
+                                <button className="grid-item grid-item-3" onClick={handleAnswerButtonClick}>{answer2}</button>
+                                <button className="grid-item grid-item-4" onClick={handleAnswerButtonClick}>{answer3}</button>
+                                <button className="grid-item grid-item-5" onClick={handleAnswerButtonClick}>{answer4}</button>
+                                <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
+                            </>
+
+                        )}
+                    </div>
+
+                </div>
+
             )}
 
-            <div className="grid-container">
 
-                {scoreBoard ? (
-                    <div className="scoreBoard">Your score: </div>
-                )   :     (
-                    <>
-                    <div className="grid-item grid-item-1">{question}</div>
-                    <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
-                    <button className="grid-item grid-item-3" onClick={handleAnswerButtonClick}>{answer2}</button>
-                    <button className="grid-item grid-item-4" onClick={handleAnswerButtonClick}>{answer3}</button>
-                    <button className="grid-item grid-item-5" onClick={handleAnswerButtonClick}>{answer4}</button>
-                    <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
-                    </>
 
-                )}
-            </div>
         </div>
     )
 }
