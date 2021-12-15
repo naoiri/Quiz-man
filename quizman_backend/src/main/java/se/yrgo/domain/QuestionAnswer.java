@@ -5,13 +5,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+
+
 @Entity
 public class QuestionAnswer {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
-    private String category;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Category category;
     private String question;
     private String correctAnswer;
     private String answer2;
@@ -20,7 +27,7 @@ public class QuestionAnswer {
 
     public QuestionAnswer(){}
 
-    public QuestionAnswer(Long id, String category, String question, String correctAnswer, String answer2, String answer3, String answer4) {
+    public QuestionAnswer(Long id, Category category, String question, String correctAnswer, String answer2, String answer3, String answer4) {
         this.id = id;
         this.category = category;
         this.question = question;
@@ -38,11 +45,11 @@ public class QuestionAnswer {
         this.id = id;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
