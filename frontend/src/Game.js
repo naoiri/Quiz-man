@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 
 const Game = () => {
     const [url, setUrl] = useState('')
+    const [chosenCategory, setChosenCategory] = useState(null)
 
     const [question, setQuestion] = useState("");
     const [correctAnswer, setCorrectAnswer] = useState("");
@@ -55,13 +56,27 @@ const Game = () => {
 
     return (
         <div>
-            <div>
+            {chosenCategory==null ? (
+                <div >
                 Choose category
-                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/movie')}>Film</button>
-                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/sport')}>Sport</button>
-                <button onClick={()=>setUrl('http://localhost:8080/questionAnswers/biology')}>Biologi</button>
+                <button onClick={()=>{
+                    setUrl('http://localhost:8080/questionAnswers/movie');
+                    setChosenCategory('Film');
+                }}>Film</button>
+                <button onClick={()=>{
+                    setUrl('http://localhost:8080/questionAnswers/sport')
+                    setChosenCategory('Sport')
+                }}>Sport</button>
+                <button onClick={()=>{
+                    setUrl('http://localhost:8080/questionAnswers/biology')
+                    setChosenCategory('Biology')
+                }}>Biologi</button>
 
-            </div>
+                </div>
+            ):(
+                <div>{chosenCategory}</div>
+            )}
+
             <div className="grid-container">
 
                 {scoreBoard ? (
