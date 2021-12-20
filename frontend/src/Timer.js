@@ -11,7 +11,7 @@ const Timer = () => {
 
     return (
         <div className="App">
-            <div>Countdown: {counter}</div>
+            <div>Time left: {counter}</div>
         </div>
     );
 }
