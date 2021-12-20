@@ -2,7 +2,7 @@ import './Test.css';
 import Axios from 'axios';
 import { useState } from "react";
 import React, { useEffect } from "react";
-//import Timer from "./Timer"
+import Timer from "./Timer"
 
 
 const Game = () => {
@@ -63,6 +63,7 @@ const Game = () => {
             ):(
                 <div>
                     <h1>Category: {chosenCategory}</h1>
+                    <Timer />
                     <div className="grid-container">
                         {scoreBoard ? (
                             <div className="scoreBoard">Your score: </div>
