@@ -2,9 +2,12 @@ import './Test.css';
 import Axios from 'axios';
 import { useState } from "react";
 import React, { useEffect } from "react";
+import Timer from "./Timer"
 
 
 const Game = () => {
+
+    const [timer, resetTimer] = useState(false)
     const [url, setUrl] = useState('')
     const [chosenCategory, setChosenCategory] = useState(null)
 
@@ -30,7 +33,10 @@ const Game = () => {
         })
     }, [url])
 
-    const handleAnswerButtonClick = (e) => {
+    const handleAnswer = (e) => {
+        resetTimer(true) //Send the press to Timer component
+
+
 
         if(e.target.innerText === correctAnswer.trim()){
                setText("Correct!")
@@ -76,12 +82,13 @@ const Game = () => {
                             <div className="scoreBoard">Your score: </div>
                         )   :     (
                             <>
+                                <Timer />
                                 <div className="grid-item grid-item-1">{question}</div>
-                                <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
-                                <button className="grid-item grid-item-3" onClick={handleAnswerButtonClick}>{answer2}</button>
-                                <button className="grid-item grid-item-4" onClick={handleAnswerButtonClick}>{answer3}</button>
-                                <button className="grid-item grid-item-5" onClick={handleAnswerButtonClick}>{answer4}</button>
-                                <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
+                                <button className="grid-item grid-item-2" onClick={handleAnswer}>{correctAnswer} </button>
+                                <button className="grid-item grid-item-3" onClick={handleAnswer}>{answer2}</button>
+                                <button className="grid-item grid-item-4" onClick={handleAnswer}>{answer3}</button>
+                                <button className="grid-item grid-item-5" onClick={handleAnswer}>{answer4}</button>
+                                <div className="grid-item grid-item-6">{text}</div>
                             </>
 
                         )}
