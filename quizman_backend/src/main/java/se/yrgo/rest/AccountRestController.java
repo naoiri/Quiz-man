@@ -3,24 +3,21 @@ package se.yrgo.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import se.yrgo.data.AccountRepository;
 import se.yrgo.domain.Account;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AccountRestController {
 
     @Autowired
-    public AccountRepository data;
+    private AccountRepository data;
 
     @RequestMapping("/accounts")
-    public AccountList allAccounts(){
+    public AccountList allAccounts() {
         List<Account> accounts = data.findAll();
         return new AccountList(accounts);
     }
@@ -31,4 +28,9 @@ public class AccountRestController {
         return new ResponseEntity<>(account, HttpStatus.CREATED);
     }
 
+    @RequestMapping("/accounts/{id}")
+    public Optional<Account> getAccountByID(@PathVariable Long id) {
+        Optional<Account> account = data.findById(id);
+        return account;
+    }
 }
