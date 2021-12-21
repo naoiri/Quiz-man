@@ -10,17 +10,15 @@ const Game = () => {
     //const [timer, resetTimer] = useState(false)
     const [url, setUrl] = useState('')
     const [chosenCategory, setChosenCategory] = useState(null)
-
     const [currentIndex, setCurrentIndex] = useState(0)
     const [text, setText] = useState("");
     const [scoreBoard, showScoreBoard] = useState(false)
-
     const [questionAnswers, setQuestionAnswers] = useState([])
-
+    const [score, setScore] = useState(0)
+    //const answers = ["correctAnswer"]
 
     useEffect(() => {
         Axios.get(url).then(response => {
-            console.log(response.data.questionAnswers)
             setQuestionAnswers(response.data.questionAnswers)
 
         })
@@ -29,6 +27,7 @@ const Game = () => {
     const handleAnswer = (e) => {
         if(e.target.innerText === questionAnswers[currentIndex].correctAnswer.trim()){
             setText("Correct!")
+            setScore(score + 1)
 
         }
         else{
@@ -63,12 +62,12 @@ const Game = () => {
             ):(
                 <div>
                     <h1>Category: {chosenCategory}</h1>
-                    <Timer />
                     <div className="grid-container">
                         {scoreBoard ? (
-                            <div className="scoreBoard">Your score: </div>
+                            <div className="scoreBoard">Your score: {score}</div>
                         ) : (
                             <div className='quiz-container'>
+                                <Timer />
                                 <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
                                 <div className='answer-section'>
                                     <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.correctAnswer}</button>
