@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import se.yrgo.data.AccountRepository;
 import se.yrgo.domain.Account;
 
-
 import java.util.List;
 import java.util.Optional;
 
