@@ -16,3 +16,9 @@
 .grid-item-5{
     border: 3px black solid;
 }
+
+.fa-icons{
+    font-size: 60px;
+    opacity: 0.5;
+    color: #1e69da;
+}
