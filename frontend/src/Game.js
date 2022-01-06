@@ -2,8 +2,8 @@ import './Test.css';
 import Axios from 'axios';
 import { useState } from "react";
 import React, { useEffect } from "react";
-import Timer from "./Timer"
-
+import Timer from "./Timer";
+import Animation from "./Animation";
 
 const Game = () => {
 
@@ -52,6 +52,7 @@ const Game = () => {
 
     return (
         <div>
+
             {chosenCategory==null ? (
                 <div >
                     <h1>Choose category</h1>
@@ -62,6 +63,7 @@ const Game = () => {
             ):(
                 <div>
                     <h1>Category: {chosenCategory}</h1>
+                    <Animation />
                     <div className="grid-container">
                         {scoreBoard ? (
                             <div className="scoreBoard">Your score: {score}</div>
