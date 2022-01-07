@@ -5,7 +5,7 @@ import { faSmile, faMeh, faFrown, faFlushed, faDizzy  } from '@fortawesome/free-
 
 function Animation(props) {
 
-    const [counter, setCounter] = useState(50);
+    const [counter, setCounter] = useState(5);
     useEffect(() => {
         const timer =
             counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
