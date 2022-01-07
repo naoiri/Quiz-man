@@ -16,23 +16,23 @@ function Animation() {
         <div>
             <div>Time left: {counter}</div>
             {(() => {
-                if (counter<10) {
+                if (counter<=10) {
                     return (
-                        <FontAwesomeIcon icon={faDizzy} className="fa-icons"/>
+                        <FontAwesomeIcon icon={faDizzy} className="fa-icons" />
                     )
-                } else if (counter<20) {
+                } else if (counter<=20) {
                     return (
                         <FontAwesomeIcon icon={faFlushed} className="fa-icons"/>
                     )
-                } else if (counter<30){
+                } else if (counter<=30){
                     return (
                         <FontAwesomeIcon icon={faFrown} className="fa-icons"/>
                     )
-                } else if (counter<40){
+                } else if (counter<=40){
                     return (
                         <FontAwesomeIcon icon={faMeh} className="fa-icons"/>
                     )
-                } else if (counter<50){
+                } else if (counter<=50){
                     return (
                         <FontAwesomeIcon icon={faSmile} className="fa-icons"/>
                     )
