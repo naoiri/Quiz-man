@@ -66,9 +66,9 @@ const Game = () => {
                     <div className="grid-container">
                         {(() => {
                             if (timer === 0) {
-                                return <div className="scoreBoard">Your score: {score}</div>
+                                return <div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>
                             } else if(scoreBoard){
-                                return <div className="scoreBoard">Your score: {score}</div>
+                                return <div className="score-board">Hangman survived! Your score: {score}</div>
                             } else {
                                 return <div className='quiz-container'>
                                     <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
@@ -81,8 +81,6 @@ const Game = () => {
                                     </div>
                                 </div>
                             }
-
-
                         })()}
                     </div>
 

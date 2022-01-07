@@ -17,6 +17,9 @@
     border: 3px black solid;
 }
 
+.score-board{
+    background-color: lavenderblush;
+}
 .fa-icons {
     font-size: 60px;
 }
