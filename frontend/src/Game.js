@@ -2,7 +2,6 @@ import './Test.css';
 import Axios from 'axios';
 import { useState } from "react";
 import React, { useEffect } from "react";
-import Timer from "./Timer";
 import Animation from "./Animation";
 
 const Game = () => {
@@ -69,7 +68,6 @@ const Game = () => {
                             <div className="scoreBoard">Your score: {score}</div>
                         ) : (
                             <div className='quiz-container'>
-                                <Timer />
                                 <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
                                 <div className='answer-section'>
                                     <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.correctAnswer}</button>
