@@ -1,31 +1,39 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmile, faMeh, faFrown, faFlushed, faDizzy  } from '@fortawesome/free-solid-svg-icons';
 
 
 function Animation() {
 
-    const [time, setTime] = useState(20);
+
+    const [counter, setCounter] = useState(50);
+    useEffect(() => {
+        const timer =
+            counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+        return () => clearInterval(timer);
+    }, [counter]);
+
     return (
         <div>
+            <div>Time left: {counter}</div>
             {(() => {
-                if (time<10) {
+                if (counter<10) {
                     return (
                         <FontAwesomeIcon icon={faDizzy} className="fa-icons"/>
                     )
-                } else if (time<20) {
+                } else if (counter<20) {
                     return (
                         <FontAwesomeIcon icon={faFlushed} className="fa-icons"/>
                     )
-                } else if (time<30){
+                } else if (counter<30){
                     return (
                         <FontAwesomeIcon icon={faFrown} className="fa-icons"/>
                     )
-                } else if (time<40){
+                } else if (counter<40){
                     return (
                         <FontAwesomeIcon icon={faMeh} className="fa-icons"/>
                     )
-                } else if (time<50){
+                } else if (counter<50){
                     return (
                         <FontAwesomeIcon icon={faSmile} className="fa-icons"/>
                     )
