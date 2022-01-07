@@ -6,7 +6,8 @@ import Animation from "./Animation";
 
 const Game = () => {
 
-    //const [timer, resetTimer] = useState(false)
+    const[timer, setTimer] = useState();
+
     const [url, setUrl] = useState('')
     const [chosenCategory, setChosenCategory] = useState(null)
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -14,7 +15,6 @@ const Game = () => {
     const [scoreBoard, showScoreBoard] = useState(false)
     const [questionAnswers, setQuestionAnswers] = useState([])
     const [score, setScore] = useState(0)
-    //const answers = ["correctAnswer"]
 
     useEffect(() => {
         Axios.get(url).then(response => {
@@ -62,7 +62,14 @@ const Game = () => {
             ):(
                 <div>
                     <h1>Category: {chosenCategory}</h1>
-                    <Animation />
+                    <Animation setValue = {setTimer}/>{/*Receives timer data from child component(Animation.js)*/}
+                    <div>
+                        {(() => {
+                            if (timer === 0) {
+                                return <div>DEAD!!!</div>;
+                            }
+                        })()}
+                    </div>
                     <div className="grid-container">
                         {scoreBoard ? (
                             <div className="scoreBoard">Your score: {score}</div>

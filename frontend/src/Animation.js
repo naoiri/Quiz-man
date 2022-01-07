@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSmile, faMeh, faFrown, faFlushed, faDizzy  } from '@fortawesome/free-solid-svg-icons';
 
 
-function Animation() {
+function Animation(props) {
 
     const [counter, setCounter] = useState(50);
     useEffect(() => {
@@ -14,8 +14,10 @@ function Animation() {
 
     return (
         <div>
+            <div>{props.setValue(counter)}</div> {/* Sends data to parent component(Game.js) */}
             <div>Time left: {counter}</div>
             {(() => {
+
                 if (counter<=10) {
                     return (
                         <FontAwesomeIcon icon={faDizzy} className="fa-icons" />
@@ -38,8 +40,7 @@ function Animation() {
                     )
                 }
             })()}
-
-
+            
         </div>
     );
 }
