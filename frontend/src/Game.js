@@ -16,6 +16,7 @@ const Game = () => {
     const [questionAnswers, setQuestionAnswers] = useState([])
     const [score, setScore] = useState(0)
 
+
     useEffect(() => {
         Axios.get(url).then(response => {
             setQuestionAnswers(response.data.questionAnswers)
@@ -48,20 +49,23 @@ const Game = () => {
         setChosenCategory(category);
     }
 
-    const gameAreaSwitch = ()=>{ //This function returns a component.
+    const gameAreaSwitch = () =>{ //This function returns a component
+        const singleQuestion = getSingleQuestion(currentIndex)
+
         if(timer===0){
             return (<div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>)
-        } else if (scoreBoard){
+        } else if (scoreBoard) {
+
             return (<div className="score-board">Hangman survived! Your score: {score}</div>)
         } else {
             return (
                 <div className='quiz-container'>
                     <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
                     <div className='answer-section'>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.correctAnswer}</button>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer2}</button>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer3}</button>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer4}</button>
+                        <button onClick={handleAnswer}>{singleQuestion[0]}</button>
+                        <button onClick={handleAnswer}>{singleQuestion[1]}</button>
+                        <button onClick={handleAnswer}>{singleQuestion[2]}</button>
+                        <button onClick={handleAnswer}>{singleQuestion[3]}</button>
                         <div>{text}</div>
                     </div>
                 </div>
@@ -70,6 +74,52 @@ const Game = () => {
 
     }
 
+    const getSingleQuestion = (index) => {
+
+        const singleQuestion = questionAnswers[index];
+        const answers = [
+            singleQuestion?.correctAnswer,
+            singleQuestion?.answer2,
+            singleQuestion?.answer3,
+            singleQuestion?.answer4
+        ]
+
+        //Randomize the choices
+        for(let i = (answers.length - 1); 0 < i; i--){
+
+            // 0〜(i+1)の範囲で値を取得
+            let random = Math.floor(Math.random() * (i + 1));
+
+            // 要素の並び替えを実行
+            let tmp = answers[i];
+            answers[i] = answers[random];
+            answers[random] = tmp;
+        }
+
+        return answers;
+    }
+
+    const randomizer = (singleQuestion) =>{
+        const answers = [
+            singleQuestion.correctAnswer,
+            singleQuestion.answer2,
+            singleQuestion.answer3,
+            singleQuestion.answer4
+        ]
+
+        for(let i = (answers.length - 1); 0 < i; i--){
+
+            // 0〜(i+1)の範囲で値を取得
+            let random = Math.floor(Math.random() * (i + 1));
+
+            // 要素の並び替えを実行
+            let tmp = answers[i];
+            answers[i] = answers[random];
+            answers[random] = tmp;
+        }
+
+        return answers;
+    }
 
     return (
         <div>
