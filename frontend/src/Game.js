@@ -48,7 +48,7 @@ const Game = () => {
         setChosenCategory(category);
     }
 
-    const GameAreaSwitch = ()=>{ //This function returns a component.
+    const gameAreaSwitch = ()=>{ //This function returns a component.
         if(timer===0){
             return (<div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>)
         } else if (scoreBoard){
@@ -86,7 +86,7 @@ const Game = () => {
                     <h1>Category: {chosenCategory}</h1>
                     <Animation setValue={setTimer}/>{/*Receives timer data from child component(Animation.js)*/}
                     <div className="grid-container">
-                        {GameAreaSwitch()}
+                        {gameAreaSwitch()}
                     </div>
                 </div>
 
