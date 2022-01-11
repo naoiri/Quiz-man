@@ -5,6 +5,11 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "email")
     private String email;
     private String password;
     private int highscore;
