@@ -6,9 +6,6 @@ public class Account {
     @Id
     private Long id;
 
-    @Column(name = "title")
-    private String title;
-
     @Column(name = "email")
     private String email;
     private String password;
