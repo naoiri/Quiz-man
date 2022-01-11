@@ -2,51 +2,43 @@ import './Test.css';
 import Axios from 'axios';
 import { useState } from "react";
 import React, { useEffect } from "react";
+import Timer from "./Timer"
 
 
 const Game = () => {
+
+    //const [timer, resetTimer] = useState(false)
     const [url, setUrl] = useState('')
     const [chosenCategory, setChosenCategory] = useState(null)
-
-    const [question, setQuestion] = useState("");
-    const [correctAnswer, setCorrectAnswer] = useState("");
-    const [answer2, setAnswer2] = useState("");
-    const [answer3, setAnswer3] = useState("");
-    const [answer4, setAnswer4] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0)
     const [text, setText] = useState("");
-    const [data, setData] = useState("");
     const [scoreBoard, showScoreBoard] = useState(false)
+    const [questionAnswers, setQuestionAnswers] = useState([])
+    const [score, setScore] = useState(0)
+    //const answers = ["correctAnswer"]
 
     useEffect(() => {
         Axios.get(url).then(response => {
-            setData(response.data.questionAnswers)
-            setQuestion(response.data.questionAnswers[currentIndex].question);
-            setCorrectAnswer(response.data.questionAnswers[currentIndex].correctAnswer)
-            setAnswer2(response.data.questionAnswers[currentIndex].answer2)
-            setAnswer3(response.data.questionAnswers[currentIndex].answer3)
-            setAnswer4(response.data.questionAnswers[currentIndex].answer4)
+            setQuestionAnswers(response.data.questionAnswers)
 
         })
     }, [url])
 
-    const handleAnswerButtonClick = (e) => {
+    const handleAnswer = (e) => {
+        if(e.target.innerText === questionAnswers[currentIndex].correctAnswer.trim()){
+            setText("Correct!")
+            setScore(score + 1)
 
-        if(e.target.innerText === correctAnswer.trim()){
-               setText("Correct!")
         }
         else{
-               setText("Incorrect...")
+            setText("Incorrect...")
         }
-        setCurrentIndex(currentIndex + 1)
-        if(currentIndex < data.length){
-                setQuestion(data[currentIndex].question);
-                setCorrectAnswer(data[currentIndex].correctAnswer)
-                setAnswer2(data[currentIndex].answer2)
-                setAnswer3(data[currentIndex].answer3)
-                setAnswer4(data[currentIndex].answer4)
-        }
-        else{
+
+        const nextIndex = currentIndex + 1;
+
+        if(nextIndex < questionAnswers.length){
+            setCurrentIndex(nextIndex);
+        } else {
             showScoreBoard(true)
         }
 
@@ -71,20 +63,23 @@ const Game = () => {
                 <div>
                     <h1>Category: {chosenCategory}</h1>
                     <div className="grid-container">
-
                         {scoreBoard ? (
-                            <div className="scoreBoard">Your score: </div>
-                        )   :     (
-                            <>
-                                <div className="grid-item grid-item-1">{question}</div>
-                                <button className="grid-item grid-item-2" onClick={handleAnswerButtonClick}>{correctAnswer} </button>
-                                <button className="grid-item grid-item-3" onClick={handleAnswerButtonClick}>{answer2}</button>
-                                <button className="grid-item grid-item-4" onClick={handleAnswerButtonClick}>{answer3}</button>
-                                <button className="grid-item grid-item-5" onClick={handleAnswerButtonClick}>{answer4}</button>
-                                <div className="grid-item grid-item-6" onClick={handleAnswerButtonClick}>{text}</div>
-                            </>
-
+                            <div className="scoreBoard">Your score: {score}</div>
+                        ) : (
+                            <div className='quiz-container'>
+                                <Timer />
+                                <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
+                                <div className='answer-section'>
+                                    <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.correctAnswer}</button>
+                                    <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer2}</button>
+                                    <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer3}</button>
+                                    <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer4}</button>
+                                    <div>{text}</div>
+                                </div>
+                            </div>
                         )}
+
+
                     </div>
 
                 </div>
