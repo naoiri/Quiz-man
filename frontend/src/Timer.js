@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 const Timer = () => {
-    const [counter, setCounter] = useState(60);
+    const [counter, setCounter] = useState(50);
 
     useEffect(() => {
         const timer =
