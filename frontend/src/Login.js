@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Login = () => {
     
     const url = 'http://localhost:8080/accounts';
@@ -25,21 +26,22 @@ const Login = () => {
       const typedEmail = e.target.email.value;
       const typedPassword = e.target.password.value;
 
-      for(let i = 0; i<accounts.length; i++){
-        if(accounts[i].email.trim() === typedEmail ){
-          if(accounts[i].password.trim() === typedPassword){
-            setText("Welcome " + typedEmail + ", access granted!");
-              console.log(accounts[i].id);
-            // Set the global Current USERID to account[i].id
-            setLogin(true);
-            break;
-          }
-        } else {
-            setText("Access denied")
-            setLogin(false)
+        let userId;
+        for (let i = 0; i < accounts.length; i++) {
+            if (accounts[i].email.trim() === typedEmail) {
+                if (accounts[i].password.trim() === typedPassword) {
+                    setText("Welcome " + typedEmail + ", access granted!");
+                    userId = accounts[i].id;
+                    // Set the global Current USERID to account[i].id
+                    setLogin(true);
+                    break;
+                }
+            } else {
+                setText("Access denied")
+                setLogin(false)
+            }
+
         }
-  
-      }
     }
   
     return ( 
