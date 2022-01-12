@@ -22,7 +22,6 @@ const Login = () => {
         //console.log(e)
       e.preventDefault();
 
-
       const typedEmail = e.target.email.value;
       const typedPassword = e.target.password.value;
 
@@ -30,14 +29,14 @@ const Login = () => {
         if(accounts[i].email.trim() === typedEmail ){
           if(accounts[i].password.trim() === typedPassword){
             setText("Welcome " + typedEmail + ", access granted!");
+              console.log(accounts[i].id);
+            // Set the global Current USERID to account[i].id
             setLogin(true);
             break;
           }
         } else {
             setText("Access denied")
             setLogin(false)
-
-     
         }
   
       }
