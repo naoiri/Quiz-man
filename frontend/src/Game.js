@@ -20,7 +20,6 @@ const Game = () => {
     useEffect(() => {
         Axios.get(url).then(response => {
             setQuestionAnswers(response.data.questionAnswers)
-            console.log(response.data.questionAnswers)
 
         })
     }, [url])
@@ -51,11 +50,10 @@ const Game = () => {
     }
 
     const gameAreaSwitch = () =>{ //This function returns a component
-        if(timer===0){
-            return (<div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>)
-        } else if (scoreBoard) {
-
+        if(scoreBoard){
             return (<div className="score-board">Hangman survived! Your score: {score}</div>)
+        } else if (timer===0) {
+            return (<div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>)
         } else {
             return (
                 <div className='quiz-container'>
@@ -86,7 +84,8 @@ const Game = () => {
             ) : (
                 <div>
                     <h1>Category: {chosenCategory}</h1>
-                    <Animation setValue={setTimer}/>{/*Receives timer data from child component(Animation.js)*/}
+                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
+
                     <div className="grid-container">
                         {gameAreaSwitch()}
                     </div>
