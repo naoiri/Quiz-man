@@ -53,10 +53,17 @@ const Game = () => {
         if(scoreBoard){
             return (<div className="score-board">Hangman survived! Your score: {score}</div>)
         } else if (timer===0) {
-            return (<div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>)
+            return (
+                <div className='quiz-container'>
+                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
+                    <div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>
+                </div>
+
+            )
         } else {
             return (
                 <div className='quiz-container'>
+                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
                     <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
                     <div className='answer-section'>
                         <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer1}</button>
@@ -84,7 +91,6 @@ const Game = () => {
             ) : (
                 <div>
                     <h1>Category: {chosenCategory}</h1>
-                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
 
                     <div className="grid-container">
                         {gameAreaSwitch()}
