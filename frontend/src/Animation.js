@@ -4,7 +4,7 @@ import {faSmile, faMeh, faFrown, faFlushed, faTired} from '@fortawesome/free-reg
 
 function Animation(props) {
 
-    const [counter, setCounter] = useState(10);
+    const [counter, setCounter] = useState(20);
 
     useEffect(() => {
         const timer =
@@ -20,11 +20,11 @@ function Animation(props) {
 
                 if (counter <= 10) {
                     return (
-                        <FontAwesomeIcon icon={faTired} className="fa-icons" />
+                        <FontAwesomeIcon icon={faTired} className="fa-icons" pulse/>
                     )
                 } else if (counter <= 20) {
                     return (
-                        <FontAwesomeIcon icon={faFlushed} className="fa-icons"/>
+                        <FontAwesomeIcon icon={faFlushed} className="fa-icons" spin/>
                     )
                 } else if (counter <= 30) {
                     return (
