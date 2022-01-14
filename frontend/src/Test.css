@@ -1,29 +1,50 @@
-.grid-container{
+.grid-container {
     background-color: aquamarine;
 }
-.grid-item-1{
-    border: 3px black solid;
-}
-.grid-item-2{
-    border: 3px black solid;
-}
-.grid-item-3{
-    border: 3px black solid;
-}
-.grid-item-4{
-    border: 3px black solid;
-}
-.grid-item-5{
+
+.grid-item-1 {
     border: 3px black solid;
 }
 
-.score-board{
+.grid-item-2 {
+    border: 3px black solid;
+}
+
+.grid-item-3 {
+    border: 3px black solid;
+}
+
+.grid-item-4 {
+    border: 3px black solid;
+}
+
+.grid-item-5 {
+    border: 3px black solid;
+}
+
+.score-board {
     background-color: lavenderblush;
 }
+
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .fa-icons {
     font-size: 60px;
-    color: #1e69da;
-    fill: #f1356d;
+
+}
+
+#dizzy {
+
 }
 
 .animation {
@@ -34,3 +55,4 @@
 .score-board {
     font-size: 30px;
 }
+

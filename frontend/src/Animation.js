@@ -4,7 +4,7 @@ import {FaRegSmile, FaRegMeh, FaRegFrownOpen, FaRegFlushed, FaRegDizzy} from 're
 
 function Animation(props) {
 
-    const [counter, setCounter] = useState(20);
+    const [counter, setCounter] = useState(50);
 
     useEffect(() => {
         const timer =
@@ -20,23 +20,23 @@ function Animation(props) {
 
                 if (counter <= 10) {
                     return (
-                        <FaRegDizzy className="fa-icons" pulse/>
+                        <FaRegDizzy className="fa-icons" fill="#f72b0c"/>
                     )
                 } else if (counter <= 20) {
                     return (
-                        <FaRegFlushed className="fa-icons" spin/>
+                        <FaRegFlushed className="fa-icons" fill="#fc7703"/>
                     )
                 } else if (counter <= 30) {
                     return (
-                        <FaRegFrownOpen className="fa-icons"/>
+                        <FaRegFrownOpen className="fa-icons" fill="#fcf803"/>
                     )
                 } else if (counter <= 40) {
                     return (
-                        <FaRegMeh className="fa-icons"/>
+                        <FaRegMeh className="fa-icons" fill="#adfc03"/>
                     )
                 } else if (counter <= 50) {
                     return (
-                        <FaRegSmile className="fa-icons"/>
+                        <FaRegSmile className="fa-icons" fill="#07f747"/>
                     )
                 }
             })()}
