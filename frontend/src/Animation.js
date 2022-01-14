@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSmile, faMeh, faFrown, faFlushed, faTired} from '@fortawesome/free-regular-svg-icons'
+import {FaRegSmile, FaRegMeh, FaRegFrownOpen, FaRegFlushed, FaRegDizzy} from 'react-icons/fa'
 
 function Animation(props) {
 
@@ -20,23 +20,23 @@ function Animation(props) {
 
                 if (counter <= 10) {
                     return (
-                        <FontAwesomeIcon icon={faTired} className="fa-icons" pulse/>
+                        <FaRegDizzy className="fa-icons" pulse/>
                     )
                 } else if (counter <= 20) {
                     return (
-                        <FontAwesomeIcon icon={faFlushed} className="fa-icons" spin/>
+                        <FaRegFlushed className="fa-icons" spin/>
                     )
                 } else if (counter <= 30) {
                     return (
-                        <FontAwesomeIcon icon={faFrown} className="fa-icons"/>
+                        <FaRegFrownOpen className="fa-icons"/>
                     )
                 } else if (counter <= 40) {
                     return (
-                        <FontAwesomeIcon icon={faMeh} className="fa-icons"/>
+                        <FaRegMeh className="fa-icons"/>
                     )
                 } else if (counter <= 50) {
                     return (
-                        <FontAwesomeIcon icon={faSmile} className="fa-icons"/>
+                        <FaRegSmile className="fa-icons"/>
                     )
                 }
             })()}

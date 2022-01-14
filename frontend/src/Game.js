@@ -3,8 +3,7 @@ import Axios from 'axios';
 import {useState} from "react";
 import React, {useEffect} from "react";
 import Animation from "./Animation";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSmile, faDizzy} from '@fortawesome/free-regular-svg-icons';
+import {FaRegLaughWink, FaSkull} from 'react-icons/fa';
 
 
 const Game = () => {
@@ -56,7 +55,7 @@ const Game = () => {
             return (
                 <div className="score-board">
                     <h2>Brilliant job, Quizman survived! </h2> <br/>
-                    <FontAwesomeIcon icon={faSmile} className="fa-icons"/>
+                    <FaRegLaughWink className="fa-icons"/>
                     <h2>Your score: {score} </h2>
                 </div>
             )
@@ -66,7 +65,7 @@ const Game = () => {
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
                     <div className="score-board">
                         <h2>Time is up! Quizman is now dead. </h2> <br/>
-                        <FontAwesomeIcon icon={faDizzy} className="fa-icons"/>
+                        <FaSkull className="fa-icons"/>
                         <h2>Your score: {score} </h2>
                     </div>
                 </div>
