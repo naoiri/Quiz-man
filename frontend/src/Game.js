@@ -3,6 +3,9 @@ import Axios from 'axios';
 import {useState} from "react";
 import React, {useEffect} from "react";
 import Animation from "./Animation";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSmile} from '@fortawesome/free-solid-svg-icons';
+
 
 const Game = () => {
 
@@ -15,7 +18,6 @@ const Game = () => {
     const [scoreBoard, showScoreBoard] = useState(false)
     const [questionAnswers, setQuestionAnswers] = useState([])
     const [score, setScore] = useState(0)
-
 
     useEffect(() => {
         Axios.get(url).then(response => {
@@ -51,7 +53,13 @@ const Game = () => {
 
     const gameAreaSwitch = () =>{ //This function returns a component
         if(scoreBoard){
-            return (<div className="score-board"> Quizman survived! Your score: {score}</div>)
+            return (
+                <div className="score-board">
+                    <h2>Brilliant job, Quizman survived! </h2> <br/>
+                    <FontAwesomeIcon icon={faSmile} className="fa-icons"/>
+                    <h2>Your score: {score} </h2>
+                </div>
+            )
         } else if (timer===0) {
             return (
                 <div className='quiz-container'>
