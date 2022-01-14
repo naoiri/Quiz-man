@@ -3,7 +3,7 @@ import Axios from 'axios';
 import {useState} from "react";
 import React, {useEffect} from "react";
 import Animation from "./Animation";
-import {FaRegLaughWink, FaSkull} from 'react-icons/fa';
+import {FaRegLaughWink} from 'react-icons/fa';
 
 
 const Game = () => {
@@ -65,7 +65,6 @@ const Game = () => {
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
                     <div className="score-board">
                         <h2>Time is up! Quizman is now dead. </h2> <br/>
-                        <FaSkull className="fa-icons"/>
                         <h2>Your score: {score} </h2>
                     </div>
                 </div>

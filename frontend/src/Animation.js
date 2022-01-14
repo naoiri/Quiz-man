@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {FaRegSmile, FaRegMeh, FaRegFrownOpen, FaRegFlushed, FaRegDizzy} from 'react-icons/fa'
+import {FaRegSmile, FaRegMeh, FaRegFrownOpen, FaRegFlushed, FaRegDizzy, FaSkull} from 'react-icons/fa'
 
 function Animation(props) {
 
@@ -17,26 +17,29 @@ function Animation(props) {
             {props.setValue(counter)}{/* Sends data to parent component(Game.js) */}
             <div className="time">Time left: {counter}</div>
             {(() => {
-
-                if (counter <= 10) {
+                if(counter === 0){
                     return (
-                        <FaRegDizzy className="fa-icons" fill="#f72b0c"/>
+                        <FaSkull className="skull" />
+                    )
+                } else if (counter <= 10) {
+                    return (
+                        <FaRegDizzy className="dizzy" />
                     )
                 } else if (counter <= 20) {
                     return (
-                        <FaRegFlushed className="fa-icons" fill="#fc7703"/>
+                        <FaRegFlushed className="flushed" />
                     )
                 } else if (counter <= 30) {
                     return (
-                        <FaRegFrownOpen className="fa-icons" fill="#fcf803"/>
+                        <FaRegFrownOpen className="frown" />
                     )
                 } else if (counter <= 40) {
                     return (
-                        <FaRegMeh className="fa-icons" fill="#adfc03"/>
+                        <FaRegMeh className="meh" />
                     )
                 } else if (counter <= 50) {
                     return (
-                        <FaRegSmile className="fa-icons" fill="#07f747"/>
+                        <FaRegSmile className="smile" />
                     )
                 }
             })()}

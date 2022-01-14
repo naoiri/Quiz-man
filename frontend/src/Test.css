@@ -26,7 +26,7 @@
     background-color: lavenderblush;
 }
 
-@keyframes beat {
+@keyframes dizzybeat {
     0% {
         transform: scale(1);
     }
@@ -38,15 +38,46 @@
     }
 }
 
-.fa-icons {
+@keyframes flushedbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.skull {
+    font-size: 80px;
+}
+
+.dizzy {
     font-size: 60px;
-
+    fill: #f72b0c;
+    animation: dizzybeat 0.75s infinite;
 }
 
-#dizzy {
-
+.flushed {
+    font-size: 60px;
+    fill: #fc7703;
+    animation: flushedbeat 1s infinite;
 }
 
+.frown {
+    font-size: 60px;
+    fill: #fcf803;
+}
+
+.meh {
+    font-size: 60px;
+    fill: #adfc03;
+}
+.smile {
+    font-size: 60px;
+    fill: #07f747;
+}
 .animation {
     font-size: 30px;
     background-color: lavender;
