@@ -51,12 +51,12 @@ const Game = () => {
 
     const gameAreaSwitch = () =>{ //This function returns a component
         if(scoreBoard){
-            return (<div className="score-board">Hangman survived! Your score: {score}</div>)
+            return (<div className="score-board"> Quizman survived! Your score: {score}</div>)
         } else if (timer===0) {
             return (
                 <div className='quiz-container'>
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
-                    <div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>
+                    <div className="score-board">Time is up! Quizman is now dead. Your score: {score}</div>
                 </div>
 
             )
