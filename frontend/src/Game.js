@@ -4,7 +4,7 @@ import {useState} from "react";
 import React, {useEffect} from "react";
 import Animation from "./Animation";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSmile} from '@fortawesome/free-solid-svg-icons';
+import {faSmile, faDizzy} from '@fortawesome/free-regular-svg-icons';
 
 
 const Game = () => {
@@ -64,7 +64,11 @@ const Game = () => {
             return (
                 <div className='quiz-container'>
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
-                    <div className="score-board">Time is up! Quizman is now dead. Your score: {score}</div>
+                    <div className="score-board">
+                        <h2>Time is up! Quizman is now dead. </h2> <br/>
+                        <FontAwesomeIcon icon={faDizzy} className="fa-icons"/>
+                        <h2>Your score: {score} </h2>
+                    </div>
                 </div>
 
             )
