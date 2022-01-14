@@ -12,7 +12,7 @@ function Animation(props) {
     }, [counter]);
 
     return (
-        <div className="animation">
+        <div className="animation-area">
             {props.setValue(counter)}{/* Sends data to parent component(Game.js) */}
             <div className="time">Time left: {counter}</div>
             {(() => {
