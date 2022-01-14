@@ -14,14 +14,14 @@ function Animation(props) {
     }, [counter]);
 
     return (
-        <div>
+        <div className="animation">
             {props.setValue(counter)}{/* Sends data to parent component(Game.js) */}
-            <div>Time left: {counter}</div>
+            <div className="time">Time left: {counter}</div>
             {(() => {
 
                 if (counter <= 10) {
                     return (
-                        <FontAwesomeIcon icon={faDizzy} className="fa-icons"/>
+                        <FontAwesomeIcon icon={faDizzy} className="fa-icons" backgroundColor="red"/>
                     )
                 } else if (counter <= 20) {
                     return (
