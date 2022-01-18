@@ -3,6 +3,8 @@ import Axios from 'axios';
 import {useState} from "react";
 import React, {useEffect} from "react";
 import Animation from "./Animation";
+import {FaRegLaughWink} from 'react-icons/fa';
+
 
 const Game = () => {
 
@@ -16,11 +18,9 @@ const Game = () => {
     const [questionAnswers, setQuestionAnswers] = useState([])
     const [score, setScore] = useState(0)
 
-
     useEffect(() => {
         Axios.get(url).then(response => {
             setQuestionAnswers(response.data.questionAnswers)
-            console.log(response.data.questionAnswers)
 
         })
     }, [url])
@@ -51,14 +51,29 @@ const Game = () => {
     }
 
     const gameAreaSwitch = () =>{ //This function returns a component
-        if(timer===0){
-            return (<div className="score-board">Time is up! Hangman is now dead. Your score: {score}</div>)
-        } else if (scoreBoard) {
+        if(scoreBoard){
+            return (
+                <div className="score-board">
+                    <h2>Brilliant job, Quizman survived! </h2> <br/>
+                    <FaRegLaughWink className="fa-icons"/>
+                    <h2>Your score: {score} </h2>
+                </div>
+            )
+        } else if (timer===0) {
+            return (
+                <div className='quiz-container'>
+                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
+                    <div className="score-board">
+                        <h2>Time is up! Quizman is now dead. </h2> <br/>
+                        <h2>Your score: {score} </h2>
+                    </div>
+                </div>
 
-            return (<div className="score-board">Hangman survived! Your score: {score}</div>)
+            )
         } else {
             return (
                 <div className='quiz-container'>
+                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
                     <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
                     <div className='answer-section'>
                         <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer1}</button>
@@ -86,7 +101,7 @@ const Game = () => {
             ) : (
                 <div>
                     <h1>Category: {chosenCategory}</h1>
-                    <Animation setValue={setTimer}/>{/*Receives timer data from child component(Animation.js)*/}
+
                     <div className="grid-container">
                         {gameAreaSwitch()}
                     </div>

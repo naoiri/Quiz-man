@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSmile, faMeh, faFrown, faFlushed, faDizzy  } from '@fortawesome/free-solid-svg-icons';
-
+import {FaRegSmile, FaRegMeh, FaRegFrownOpen, FaRegFlushed, FaRegDizzy, FaSkull} from 'react-icons/fa'
 
 function Animation(props) {
 
-    const [counter, setCounter] = useState(5);
+    const [counter, setCounter] = useState(50);
+
     useEffect(() => {
         const timer =
             counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
@@ -13,35 +12,39 @@ function Animation(props) {
     }, [counter]);
 
     return (
-        <div>
+        <div className="animation-area">
             {props.setValue(counter)}{/* Sends data to parent component(Game.js) */}
-            <div>Time left: {counter}</div>
+            <div className="time">Time left: {counter}</div>
             {(() => {
-
-                if (counter<=10) {
+                if(counter === 0){
                     return (
-                        <FontAwesomeIcon icon={faDizzy} className="fa-icons" />
+                        <FaSkull className="skull" />
                     )
-                } else if (counter<=20) {
+                } else if (counter <= 10) {
                     return (
-                        <FontAwesomeIcon icon={faFlushed} className="fa-icons"/>
+                        <FaRegDizzy className="dizzy" />
                     )
-                } else if (counter<=30){
+                } else if (counter <= 20) {
                     return (
-                        <FontAwesomeIcon icon={faFrown} className="fa-icons"/>
+                        <FaRegFlushed className="flushed" />
                     )
-                } else if (counter<=40){
+                } else if (counter <= 30) {
                     return (
-                        <FontAwesomeIcon icon={faMeh} className="fa-icons"/>
+                        <FaRegFrownOpen className="frown" />
                     )
-                } else if (counter<=50){
+                } else if (counter <= 40) {
                     return (
-                        <FontAwesomeIcon icon={faSmile} className="fa-icons"/>
+                        <FaRegMeh className="meh" />
+                    )
+                } else if (counter <= 50) {
+                    return (
+                        <FaRegSmile className="smile" />
                     )
                 }
             })()}
-            
+
         </div>
     );
 }
+
 export default Animation;
