@@ -22,7 +22,7 @@ function CreateQuestion() {
         <div>
             <h1>This is the Create Question Page</h1>
             <form onSubmit={postData}>
-                <input type="text" name="category" placeholder="category"/>
+                <input type="number" name="category" placeholder="1=Sport, 2=Film, 3=Biology"/>
                 <input type="text" name="question" placeholder="question"/>
                 <input type="text" name="answer1" placeholder="answer1"/>
                 <input type="text" name="answer2" placeholder="answer2"/>

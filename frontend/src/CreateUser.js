@@ -2,10 +2,12 @@ import React from "react";
 
 function CreateUser() {
     const axios = require('axios');
-
     async function postData(e) {
+        const email = e.target.email.value;
+        const removeExtraSpace = (s) => s.trim().split(/ +/).join('');
+
         axios.post('http://localhost:8080/accounts', {
-            email: e.target.email.value,
+            email: removeExtraSpace(email),
             password: e.target.password.value,
             highscore: 0
         }).then(function (response) {
