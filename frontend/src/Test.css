@@ -1,25 +1,89 @@
-.grid-container{
+.grid-container {
     background-color: aquamarine;
 }
-.grid-item-1{
-    border: 3px black solid;
-}
-.grid-item-2{
-    border: 3px black solid;
-}
-.grid-item-3{
-    border: 3px black solid;
-}
-.grid-item-4{
-    border: 3px black solid;
-}
-.grid-item-5{
+
+.grid-item-1 {
     border: 3px black solid;
 }
 
-.score-board{
+.grid-item-2 {
+    border: 3px black solid;
+}
+
+.grid-item-3 {
+    border: 3px black solid;
+}
+
+.grid-item-4 {
+    border: 3px black solid;
+}
+
+.grid-item-5 {
+    border: 3px black solid;
+}
+
+.score-board {
     background-color: lavenderblush;
 }
-.fa-icons {
-    font-size: 60px;
+
+@keyframes dizzybeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
+
+@keyframes flushedbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.skull {
+    font-size: 80px;
+}
+
+.dizzy {
+    font-size: 60px;
+    fill: #f72b0c;
+    animation: dizzybeat 0.75s infinite;
+}
+
+.flushed {
+    font-size: 60px;
+    fill: #fc7703;
+    animation: flushedbeat 1s infinite;
+}
+
+.frown {
+    font-size: 60px;
+    fill: #fcf803;
+}
+
+.meh {
+    font-size: 60px;
+    fill: #adfc03;
+}
+.smile {
+    font-size: 60px;
+    fill: #07f747;
+}
+.animation-area {
+    font-size: 30px;
+    background-color: lavender;
+}
+
+.score-board {
+    font-size: 30px;
+}
+
