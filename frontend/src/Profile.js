@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 const Profile = () => {
+    const url = 'http://localhost:8080/accounts/' + localStorage.getItem('userId');
+
+    const [accounts, setAccounts] = useState('')
+    const [login, setLogin] = useState(false);
+
+    useEffect(() => {
+        axios.get(url).then(response => {
+            setAccounts(response.data.accounts)
+        })
+    }, [url])
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input type="email" name="email" placeholder="email"/>
-                <input type="password" name="password" placeholder="password"/>
-
-                <button>Submit</button>
-                <div>{text}</div>
-                <div>
-                    {login &&
-                    <Link to="/game" >
-                        <button style={{backgroundColor: "#40F934"}}>Start the game</button></Link>}
-                </div>
-            </form>
-            <Link to="/createuser">
-                <button>Create User</button>
-            </Link>
+           <h1>This is the profile page</h1>
+            <h1>{accounts.email}</h1>
         </div>
     )
 

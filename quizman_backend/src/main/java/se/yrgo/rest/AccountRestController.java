@@ -34,6 +34,7 @@ public class AccountRestController {
         Optional<Account> account = data.findById(id);
         return account;
     }
+
     @GetMapping("/accounts/{email}")
     public ResponseEntity<Account> findAccountByEmail(@PathVariable String email){
         try{

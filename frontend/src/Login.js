@@ -32,7 +32,7 @@ const Login = () => {
                 if (accounts[i].password.trim() === typedPassword) {
                     setText("Welcome " + typedEmail + ", access granted!");
                     userId = accounts[i].id;
-                    // Set the global Current USERID to account[i].id
+                    localStorage.setItem('userId', userId);
                     setLogin(true);
                     break;
                 }
