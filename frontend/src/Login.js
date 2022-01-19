@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import Profile from './Profile';
 
 
 const Login = () => {
@@ -29,8 +30,8 @@ const Login = () => {
                 if (accounts[i]?.password === typedPassword) {
                     setText("Welcome " + typedEmail + ", access granted!");
                     setLogin(true);
-                    userId = accounts[i].id;
-                    localStorage.setItem('userId', userId);
+                    localStorage.setItem('userId', accounts[i].id);
+
                     break;
                 }
             } else {
@@ -53,6 +54,10 @@ const Login = () => {
                     <Link to="/game">
                         <button style={{backgroundColor: "#40F934"}}>Start the game</button>
                     </Link>}
+                </div>
+                <div>
+                    <Link to="/profile" >
+                        <button >Link to Profile</button></Link>
                 </div>
             </form>
             <Link to="/createuser">

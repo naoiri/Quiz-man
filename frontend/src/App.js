@@ -6,6 +6,7 @@ import Difficulty from './Difficulty';
 import Game from './Game';
 import CreateUser from './CreateUser';
 import CreateQuestion from "./CreateQuestion";
+import Profile from "./Profile"
 
 function App() {
 
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route exact path="/createquestion">
               <CreateQuestion />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
 
           </Switch>
