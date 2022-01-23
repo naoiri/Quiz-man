@@ -32,9 +32,6 @@ function App() {
             <Route exact path="/game">
               <Game />
             </Route>
-            <Route exact path="/createquestion">
-              <CreateQuestion />
-            </Route>
             <Route exact path="/profile">
               <Profile />
             </Route>
