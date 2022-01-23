@@ -5,7 +5,6 @@ import Home from './Home';
 import Difficulty from './Difficulty';
 import Game from './Game';
 import CreateUser from './CreateUser';
-import CreateQuestion from "./CreateQuestion";
 import Profile from "./Profile"
 
 function App() {
