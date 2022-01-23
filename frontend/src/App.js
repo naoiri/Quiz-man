@@ -35,7 +35,6 @@ function App() {
             <Route exact path="/profile">
               <Profile />
             </Route>
-
           </Switch>
           
         </div>   
