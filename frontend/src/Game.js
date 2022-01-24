@@ -18,7 +18,7 @@ const Game = () => {
     const [questionAnswers, setQuestionAnswers] = useState([])
     const [score, setScore] = useState(0)
 
-    const testScore = 16;
+    const testScore = 20;
 
     useEffect(() => {
         Axios.get(url).then(response => {
@@ -53,11 +53,7 @@ const Game = () => {
     }
     async function updateHighscore(){
         console.log("update Clicked!")
-        Axios.put('http://localhost:8080/accounts/'+localStorage.getItem('userId'),{
-            "email": "ella@a.com",
-            "password": "sa                  ",
-            "highscore": testScore
-        })
+        Axios.patch('http://localhost:8080/accounts/'+'36'+ '/'+ testScore)
     }
     const gameAreaSwitch = () =>{ //This function returns a component
         if(scoreBoard){
