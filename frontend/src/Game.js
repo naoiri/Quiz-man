@@ -18,7 +18,7 @@ const Game = () => {
     const [questionAnswers, setQuestionAnswers] = useState([])
     const [score, setScore] = useState(0)
 
-    const testScore = 21;
+    const testScore = 23;
 
     useEffect(() => {
         Axios.get(url).then(response => {

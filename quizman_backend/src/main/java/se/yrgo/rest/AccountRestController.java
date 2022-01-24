@@ -10,7 +10,6 @@ import se.yrgo.domain.Account;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class AccountRestController {
 
