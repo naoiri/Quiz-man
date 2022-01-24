@@ -35,7 +35,7 @@ public class AccountRestController {
         return account;
     }
 
-    @PutMapping("/accounts/{id}")
+    @RequestMapping(value = "/accounts/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Account> updateAccount(@PathVariable("id") long id, @RequestBody Account account) {
         Optional<Account> accountData = data.findById(id);
 
