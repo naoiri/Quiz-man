@@ -34,23 +34,21 @@ public class AccountRestController {
         Optional<Account> account = data.findById(id);
         return account;
     }
-    @GetMapping("/accounts/{email}")
-    public ResponseEntity<Account> findAccountByEmail(@PathVariable String email){
-        try{
-            Account account = data.findAccountByEmail(email);
-            if (account == null)
-            {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            } else {
 
-            return new ResponseEntity<>(HttpStatus.OK);
-            }
-        }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    @PutMapping("/accounts/{id}")
+    public ResponseEntity<Account> updateAccount(@PathVariable("id") long id, @RequestBody Account account) {
+        Optional<Account> accountData = data.findById(id);
+
+        if (accountData.isPresent()) {
+            Account existingAccount = accountData.get();
+            existingAccount.setEmail(account.getEmail());
+            existingAccount.setPassword(account.getPassword());
+            existingAccount.setHighscore(account.getHighscore());
+            return new ResponseEntity<>(data.save(existingAccount), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
-   // public String findAccountByEmail(@PathVariable String email) {
-        //return email;
-
     }
+
+
 }
