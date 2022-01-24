@@ -10,7 +10,6 @@ import se.yrgo.domain.Account;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class AccountRestController {
 
@@ -34,24 +33,34 @@ public class AccountRestController {
         Optional<Account> account = data.findById(id);
         return account;
     }
-//
-//    @GetMapping("/accounts/{email}")
-//    public ResponseEntity<Account> findAccountByEmail(@PathVariable String email){
-//        try{
-//            Account account = data.findAccountByEmail(email);
-//            if (account == null)
-//            {
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//            } else {
-//
-//            return new ResponseEntity<>(HttpStatus.OK);
-//            }
-//        }catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
 
-   // public String findAccountByEmail(@PathVariable String email) {
-        //return email;
 
-    //}
+    @RequestMapping(value = "/accounts/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Account> updateAccount(@PathVariable("id") long id, @RequestBody Account account) {
+        Optional<Account> accountData = data.findById(id);
+
+        if (accountData.isPresent()) {
+            Account updatedAccount = accountData.get();
+            updatedAccount.setEmail(account.getEmail());
+            updatedAccount.setPassword(account.getPassword());
+            updatedAccount.setHighscore(account.getHighscore());
+            return new ResponseEntity<>(data.save(updatedAccount), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(value = "/accounts/{id}/{highscore}", method = RequestMethod.PATCH)
+    public ResponseEntity<Account> updateHighscore(@PathVariable Long id, @PathVariable int highscore) {
+
+        Account account = data.findById(id).get();
+        if(account.getHighscore() < highscore){
+            account.setHighscore(highscore);
+        }
+        return new ResponseEntity<Account>(data.save(account), HttpStatus.OK);
+
+
+    }
+
+
 }
