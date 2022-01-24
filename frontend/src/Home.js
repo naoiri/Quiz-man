@@ -1,17 +1,20 @@
 import { Link } from 'react-router-dom';
+import './Home.css'
 
 const Home = () => {
 
     return ( 
-        <div className="home" style={{
+        <div className="wrapper" style={{
             fontSize: "30px",
-            marginBottom: "10px"
-        }}>HOME Component!
-          <p>Hello från Naoya.This is under "content" tag</p>
-          <h1>Welcome to Quizman!</h1>
+        }}>
+          <div>
+          Welcome to Quizman!
+          </div>
+          <div>
           <Link to="/login">
-            <button className="startButton">To Login page</button>
+            <button className="button">Login</button>
           </Link>
+          </div>
         </div>
     );
 }
