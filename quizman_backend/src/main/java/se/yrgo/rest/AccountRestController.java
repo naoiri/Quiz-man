@@ -40,11 +40,11 @@ public class AccountRestController {
         Optional<Account> accountData = data.findById(id);
 
         if (accountData.isPresent()) {
-            Account existingAccount = accountData.get();
-            existingAccount.setEmail(account.getEmail());
-            existingAccount.setPassword(account.getPassword());
-            existingAccount.setHighscore(account.getHighscore());
-            return new ResponseEntity<>(data.save(existingAccount), HttpStatus.OK);
+            Account updatedAccount = accountData.get();
+            updatedAccount.setEmail(account.getEmail());
+            updatedAccount.setPassword(account.getPassword());
+            updatedAccount.setHighscore(account.getHighscore());
+            return new ResponseEntity<>(data.save(updatedAccount), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
