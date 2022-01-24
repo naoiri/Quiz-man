@@ -34,6 +34,7 @@ public class AccountRestController {
         return account;
     }
 
+
     @RequestMapping(value = "/accounts/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Account> updateAccount(@PathVariable("id") long id, @RequestBody Account account) {
         Optional<Account> accountData = data.findById(id);
@@ -57,6 +58,7 @@ public class AccountRestController {
             account.setHighscore(highscore);
         }
         return new ResponseEntity<Account>(data.save(account), HttpStatus.OK);
+
 
     }
 
