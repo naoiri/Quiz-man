@@ -1,18 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 
 function CreateQuestion() {
 
     const axios = require('axios');
+    const [cid, setCid] = useState(0);
 
     async function postData(e) {
+        console.log("Button clicked")
+        console.log(e.target)
+        if(e.target.category.value === "Film"){
+            setCid(1)
+        } else if(e.target.category.value === "Sport"){
+            setCid(2)
+        } else if(e.target.category.value === "Biology"){
+            setCid(3)
+        }
+
         axios.post('http://localhost:8080/questionAnswers', {
-            category: e.target.category.value,
-            question: e.target.question.value,
-            answer1: e.target.answer1.value,
-            answer2: e.target.answer2.value,
-            answer3: e.target.answer3.value,
-            answer4: e.target.answer4.value,
-            correctAnswer: e.target.correctanswer.value
+            "category": {
+                "id": cid,
+                "name": e.target.category.value
+            },
+            "question": e.target.question.value,
+            "answer1": e.target.answer1.value,
+            "answer2": e.target.answer2.value,
+            "answer3": e.target.answer3.value,
+            "answer4": e.target.answer4.value,
+            "correctAnswer": e.target.correctanswer.value
         }).then(function (response) {
             console.log(response);
         })
@@ -22,7 +36,7 @@ function CreateQuestion() {
         <div>
             <h1>This is the Create Question Page</h1>
             <form onSubmit={postData}>
-                <input type="number" name="category" placeholder="1=Sport, 2=Film, 3=Biology"/>
+                <input type="text" name="category" placeholder="category"/>
                 <input type="text" name="question" placeholder="question"/>
                 <input type="text" name="answer1" placeholder="answer1"/>
                 <input type="text" name="answer2" placeholder="answer2"/>
