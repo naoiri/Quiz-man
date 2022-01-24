@@ -17,16 +17,16 @@ function CreateQuestion() {
         }
 
         axios.post('http://localhost:8080/questionAnswers', {
-            "category": {
-                "id": cid,
-                "name": e.target.category.value
+            category: {
+                id: cid,
+                name: e.target.category.value
             },
-            "question": e.target.question.value,
-            "answer1": e.target.answer1.value,
-            "answer2": e.target.answer2.value,
-            "answer3": e.target.answer3.value,
-            "answer4": e.target.answer4.value,
-            "correctAnswer": e.target.correctanswer.value
+            question: e.target.question.value,
+            answer1: e.target.answer1.value,
+            answer2: e.target.answer2.value,
+            answer3: e.target.answer3.value,
+            answer4: e.target.answer4.value,
+            correctAnswer: e.target.correctanswer.value
         }).then(function (response) {
             console.log(response);
         })
