@@ -18,6 +18,7 @@ public class QuestionAnswer {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id", referencedColumnName="id")
     private Category category;
     private String question;
     private String answer1;

@@ -1,11 +1,11 @@
 package se.yrgo.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import se.yrgo.data.QuestionRepository;
 import se.yrgo.domain.QuestionAnswer;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 
 import java.util.List;
@@ -41,6 +41,12 @@ public class QuestionRestController {
         List<QuestionAnswer> questionAnswers = data.getBiologyQuestions();
 
         return new QuestionList(questionAnswers);
+    }
+
+    @RequestMapping(value = "/questionAnswers", method = RequestMethod.POST)
+    public ResponseEntity createQuestion(@RequestBody QuestionAnswer qa) {
+        data.save(qa);
+        return new ResponseEntity<>(qa, HttpStatus.CREATED);
     }
 
 }

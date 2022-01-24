@@ -34,23 +34,24 @@ public class AccountRestController {
         Optional<Account> account = data.findById(id);
         return account;
     }
-    @GetMapping("/accounts/{email}")
-    public ResponseEntity<Account> findAccountByEmail(@PathVariable String email){
-        try{
-            Account account = data.findAccountByEmail(email);
-            if (account == null)
-            {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            } else {
-
-            return new ResponseEntity<>(HttpStatus.OK);
-            }
-        }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+//
+//    @GetMapping("/accounts/{email}")
+//    public ResponseEntity<Account> findAccountByEmail(@PathVariable String email){
+//        try{
+//            Account account = data.findAccountByEmail(email);
+//            if (account == null)
+//            {
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//            } else {
+//
+//            return new ResponseEntity<>(HttpStatus.OK);
+//            }
+//        }catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
 
    // public String findAccountByEmail(@PathVariable String email) {
         //return email;
 
-    }
+    //}
 }
