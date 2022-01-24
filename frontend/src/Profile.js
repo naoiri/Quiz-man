@@ -7,13 +7,11 @@ const Profile = () => {
     const url = 'http://localhost:8080/accounts/' + localStorage.getItem('userId');
 
     const [accounts, setAccounts] = useState('')
-    const [login, setLogin] = useState(false);
 
     useEffect(() => {
         axios.get(url).then(response => {
             setAccounts(response.data)
-            console.log("hej")
-            console.log(response.data);
+
         })
     }, [url])
 
