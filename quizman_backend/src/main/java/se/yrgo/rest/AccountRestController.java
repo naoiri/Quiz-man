@@ -50,5 +50,14 @@ public class AccountRestController {
         }
     }
 
+    @RequestMapping(value = "/accounts/{id}/{highscore}", method = RequestMethod.PATCH)
+    public ResponseEntity<Account> updateHighscore(@PathVariable Long id, @PathVariable int highscore) {
+
+        Account account = data.findById(id).get();
+        account.setHighscore(highscore);
+        return new ResponseEntity<Account>(data.save(account), HttpStatus.OK);
+
+    }
+
 
 }

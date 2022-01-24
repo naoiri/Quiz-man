@@ -53,7 +53,7 @@ const Game = () => {
     }
     async function updateHighscore(){
         console.log("update Clicked!")
-        Axios.put('http://localhost:8080/accounts/36',{
+        Axios.put('http://localhost:8080/accounts/'+localStorage.getItem('userId'),{
             "email": "ella@a.com",
             "password": "sa                  ",
             "highscore": testScore
