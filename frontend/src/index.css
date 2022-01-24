@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 body{
-  background-color: purple;
+  background-color: goldenrod;
+  
 }
 /* base styles */
 * {
@@ -13,10 +14,12 @@ body{
 
 .button{
   background-color: black;
-  color: white
+  color: white;
+  font-size: 20px
 }
 
 .wrapper{
   display: grid;
   margin: 200px;
+  height: 100px
 }

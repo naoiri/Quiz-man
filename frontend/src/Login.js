@@ -42,12 +42,12 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="wrapper">
             <form onSubmit={handleSubmit}>
                 <input type="email" name="email" placeholder="email"/>
                 <input type="password" name="password" placeholder="password"/>
 
-                <button>Submit</button>
+                <button className="button">Login</button>
                 <div>{text}</div>
                 <div>
                     {login &&
@@ -57,11 +57,11 @@ const Login = () => {
                 </div>
                 <div>
                     <Link to="/profile" >
-                        <button >Link to Profile</button></Link>
+                        <button className="button">Link to Profile</button></Link>
                 </div>
             </form>
             <Link to="/createuser">
-                <button>Create User</button>
+                <button className="button">Create User</button>
             </Link>
         </div>
     )
