@@ -4,21 +4,25 @@ function CreateQuestion() {
 
     const axios = require('axios');
     let cid = 0;
+    let categoryName = '';
 
     async function postData(e) {
-
-        if(e.target.category.value === "Film"){
+        //e.preventDefault();
+        if(e.target.category.value === 1){
             cid = 1;
-        } else if(e.target.category.value === "Sport"){
+            categoryName = "Film"
+        } else if(e.target.category.value === 2){
             cid = 2;
-        } else if(e.target.category.value === "Biology"){
+            categoryName = "Sport"
+        } else if(e.target.category.value === 3){
             cid = 3;
+            categoryName = "Biology"
         }
 
         axios.post('http://localhost:8080/questionAnswers', {
             category: {
                 id: cid,
-                name: e.target.category.value
+                name: categoryName
             },
             question: e.target.question.value,
             answer1: e.target.answer1.value,
@@ -35,7 +39,7 @@ function CreateQuestion() {
         <div>
             <h1>This is the Create Question Page</h1>
             <form onSubmit={postData}>
-                <input type="text" name="category" placeholder="category"/>
+                <input type="number" name="category" placeholder="category" min="1" max="3"/>
                 <input type="text" name="question" placeholder="question"/>
                 <input type="text" name="answer1" placeholder="answer1"/>
                 <input type="text" name="answer2" placeholder="answer2"/>
