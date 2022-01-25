@@ -3,17 +3,16 @@ import React, {useState} from "react";
 function CreateQuestion() {
 
     const axios = require('axios');
-    const [cid, setCid] = useState(0);
+    let cid = 0;
 
     async function postData(e) {
-        console.log("Button clicked")
-        console.log(e.target)
+
         if(e.target.category.value === "Film"){
-            setCid(1)
+            cid = 1;
         } else if(e.target.category.value === "Sport"){
-            setCid(2)
+            cid = 2;
         } else if(e.target.category.value === "Biology"){
-            setCid(3)
+            cid = 3;
         }
 
         axios.post('http://localhost:8080/questionAnswers', {
@@ -42,7 +41,7 @@ function CreateQuestion() {
                 <input type="text" name="answer2" placeholder="answer2"/>
                 <input type="text" name="answer3" placeholder="answer3"/>
                 <input type="text" name="answer4" placeholder="answer4"/>
-                <input type="number" name="correctanswer" placeholder="num of correct answer"/>
+                <input type="text" name="correctanswer" placeholder="correct answer"/>
                 <button>Submit</button>
             </form>
         </div>
