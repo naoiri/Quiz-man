@@ -1,28 +1,17 @@
-import React, {useState} from "react";
+import React from "react";
 
 function CreateQuestion() {
 
     const axios = require('axios');
-    let cid = 0;
-    let categoryName = '';
+    let cid;
 
     async function postData(e) {
-        //e.preventDefault();
-        if(e.target.category.value === 1){
-            cid = 1;
-            categoryName = "Film"
-        } else if(e.target.category.value === 2){
-            cid = 2;
-            categoryName = "Sport"
-        } else if(e.target.category.value === 3){
-            cid = 3;
-            categoryName = "Biology"
-        }
+
+        cid = e.target.category.value;
 
         axios.post('http://localhost:8080/questionAnswers', {
             category: {
-                id: cid,
-                name: categoryName
+                id: cid
             },
             question: e.target.question.value,
             answer1: e.target.answer1.value,
