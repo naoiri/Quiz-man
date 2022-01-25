@@ -13,12 +13,11 @@ import javax.persistence.JoinColumn;
 @Entity
 public class QuestionAnswer {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_id", referencedColumnName="id")
+    @OneToOne(cascade = CascadeType.MERGE)
     private Category category;
     private String question;
     private String answer1;

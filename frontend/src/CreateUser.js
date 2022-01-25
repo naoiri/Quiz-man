@@ -20,7 +20,7 @@ function CreateUser() {
             <h1>This is the Create User Page</h1>
             <form onSubmit={postData}>
                 <input type="text" name="email" placeholder="email"/>
-                <input type="text" name="password" placeholder="password"/>
+                <input type="password" name="password" placeholder="password"/>
                 <button>Submit</button>
             </form>
         </div>
