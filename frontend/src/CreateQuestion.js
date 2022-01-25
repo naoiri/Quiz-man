@@ -39,6 +39,7 @@ function CreateQuestion() {
             <h1>This is the Create Question Page</h1>
             <form onSubmit={postData}>
                 <input type="number" name="category" placeholder="category" min="1" max="3"/>
+                <div>1=Film, 2=Sport, 3=Biology</div>
                 <input type="text" name="question" placeholder="question"/>
                 <input type="text" name="answer1" placeholder="answer1"/>
                 <input type="text" name="answer2" placeholder="answer2"/>
