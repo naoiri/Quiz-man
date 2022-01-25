@@ -4,7 +4,7 @@ function CreateQuestion() {
 
     const axios = require('axios');
     let cid;
-    let correctAnswer = '';
+    let correctAnswer;
 
     async function postData(e) {
 
