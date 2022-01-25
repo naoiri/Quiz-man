@@ -5,7 +5,7 @@ import Home from './Home';
 import Difficulty from './Difficulty';
 import Game from './Game';
 import CreateUser from './CreateUser';
-import CreateQuestion from "./CreateQuestion";
+import Profile from "./Profile"
 
 function App() {
 
@@ -32,10 +32,9 @@ function App() {
             <Route exact path="/game">
               <Game />
             </Route>
-            <Route exact path="/createquestion">
-              <CreateQuestion />
+            <Route exact path="/profile">
+              <Profile />
             </Route>
-
           </Switch>
           
         </div>   

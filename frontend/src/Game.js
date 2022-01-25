@@ -18,6 +18,8 @@ const Game = () => {
     const [questionAnswers, setQuestionAnswers] = useState([])
     const [score, setScore] = useState(0)
 
+    const testScore = 23;
+
     useEffect(() => {
         Axios.get(url).then(response => {
             setQuestionAnswers(response.data.questionAnswers)
@@ -49,9 +51,13 @@ const Game = () => {
         setUrl('http://localhost:8080/questionAnswers/' + category);
         setChosenCategory(category);
     }
-
+    async function updateHighscore(){
+        console.log("update Clicked!")
+        Axios.patch('http://localhost:8080/accounts/'+'36'+ '/'+ testScore)
+    }
     const gameAreaSwitch = () =>{ //This function returns a component
         if(scoreBoard){
+
             return (
                 <div className="score-board">
                     <h2>Brilliant job, Quizman survived! </h2> <br/>
@@ -60,6 +66,7 @@ const Game = () => {
                 </div>
             )
         } else if (timer===0) {
+
             return (
                 <div className='quiz-container'>
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
@@ -90,7 +97,7 @@ const Game = () => {
 
     return (
         <div>
-
+            <button onClick={updateHighscore}>TestScore Button</button>
             {chosenCategory == null ? (
                 <div>
                     <h1>Choose category</h1>
