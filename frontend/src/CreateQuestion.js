@@ -29,8 +29,6 @@ function CreateQuestion() {
             answer3: e.target.answer3.value,
             answer4: e.target.answer4.value,
             correctAnswer: correctAnswer
-        }).then(function (response) {
-            console.log(response);
         })
     }
 

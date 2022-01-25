@@ -94,7 +94,6 @@ const Game = () => {
 
     return (
         <div>
-            <button onClick={updateHighscore}>TestScore Button</button>
             {chosenCategory == null ? (
                 <div>
                     <h1>Choose category</h1>
