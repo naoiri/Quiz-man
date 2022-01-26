@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import Profile from './Profile.js'
 
 const Login = () => {
 
@@ -26,7 +27,7 @@ const Login = () => {
         for (let i = 0; i < accounts.length; i++) {
             if (accounts[i]?.email === typedEmail) {
                 if (accounts[i]?.password === typedPassword) {
-                    setText("Welcome " + typedEmail + ", access granted!");
+                    setText("Welcome ");
                     setLogin(true);
                     localStorage.setItem('userId', accounts[i].id);
 
@@ -49,9 +50,13 @@ const Login = () => {
                 <div>{text}</div>
                 <div>
                     {login &&
-                    <Link to="/game">
-                        <button style={{backgroundColor: "#40F934"}}>Start the game</button>
-                    </Link>}
+                    <div>
+                        <Profile />
+                        <Link to="/game">
+                            <button style={{backgroundColor: "#40F934"}}>Start the game</button>
+                        </Link>
+                    </div>
+                    }
                 </div>
                 <div className="button1">
                     <Link to="/profile" >
