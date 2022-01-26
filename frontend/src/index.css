@@ -15,11 +15,34 @@ body{
 .button{
   background-color: black;
   color: white;
-  font-size: 20px
+  font-size: 20px;
 }
 
 .wrapper{
   display: grid;
-  margin: 200px;
-  height: 100px
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 250px;
+  transform: translate(-50%, -50%);
+  border: 5px solid black;
+  padding: 20px;
+  background-color:white;
+  grid-gap: 10px;
 }
+
+input{
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.button1 , .button2 {
+  display:inline-block;
+  background-color:black;
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+  /* additional code */
+  }

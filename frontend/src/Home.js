@@ -4,12 +4,14 @@ import './Home.css'
 const Home = () => {
 
     return ( 
-        <div className="wrapper" style={{fontSize: '48px',
+        <div style={{fontSize: '48px',
                                          fontWeight:900,
                                          textTransform: 'uppercase',
                                          fontStyle: 'italic',
                                          fontSize: '3rem',
-                                         lineHeight: 0.8,}}>
+                                         lineHeight: 0.8,
+                                         margin: '200px',
+                                         height: '100px'}}>
           <div>
           Welcome to Quizman!
           </div>
@@ -21,5 +23,6 @@ const Home = () => {
         </div>
     );
 }
+
  
 export default Home;

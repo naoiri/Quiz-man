@@ -53,14 +53,16 @@ const Login = () => {
                         <button style={{backgroundColor: "#40F934"}}>Start the game</button>
                     </Link>}
                 </div>
-                <div>
+                <div className="button1">
                     <Link to="/profile" >
                         <button className="button">Link to Profile</button></Link>
                 </div>
-            </form>
-            <Link to="/createuser">
+                <div className="button2">
+                <Link to="/createuser">
                 <button className="button">Create User</button>
-            </Link>
+                </Link>
+                </div>
+            </form>
         </div>
     )
 }
