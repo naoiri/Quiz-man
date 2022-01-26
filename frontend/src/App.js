@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+
 import Login from './Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
@@ -13,8 +13,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar/>
-        
         <div className="content">
           
           <Switch>

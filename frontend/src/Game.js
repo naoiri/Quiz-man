@@ -79,13 +79,11 @@ const Game = () => {
                 <div className='quiz-container'>
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
                     <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
-                    <div className='answer-section'>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer1}</button>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer2}</button>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer3}</button>
-                        <button onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer4}</button>
-                        <div>{text}</div>
-                    </div>
+                    <div className='option1' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer1}</div>
+                    <div className='option2' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer2}</div>
+                    <div className='option3' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer3}</div>
+                    <div className='option4' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer4}</div>
+                    <div>{text}</div>
                 </div>
             )
         }
@@ -95,11 +93,11 @@ const Game = () => {
     return (
         <div>
             {chosenCategory == null ? (
-                <div>
+                <div className='container'>
                     <h1>Choose category</h1>
-                    <button onClick={handleCategory}>Movie</button>
-                    <button onClick={handleCategory}>Sport</button>
-                    <button onClick={handleCategory}>Biology</button>
+                    <button className='button' onClick={handleCategory}>Movie</button>
+                    <button className='button' onClick={handleCategory}>Sport</button>
+                    <button className='button' onClick={handleCategory}>Biology</button>
                 </div>
             ) : (
                 <div>

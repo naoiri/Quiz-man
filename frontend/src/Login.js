@@ -40,12 +40,12 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="wrapper">
             <form onSubmit={handleSubmit}>
                 <input type="email" name="email" placeholder="email"/>
                 <input type="password" name="password" placeholder="password"/>
 
-                <button>Submit</button>
+                <button className="button">Login</button>
                 <div>{text}</div>
                 <div>
                     {login &&
@@ -53,14 +53,16 @@ const Login = () => {
                         <button style={{backgroundColor: "#40F934"}}>Start the game</button>
                     </Link>}
                 </div>
-                <div>
+                <div className="button1">
                     <Link to="/profile" >
-                        <button >Link to Profile</button></Link>
+                        <button className="button">Link to Profile</button></Link>
+                </div>
+                <div className="button2">
+                <Link to="/createuser">
+                <button className="button">Create User</button>
+                </Link>
                 </div>
             </form>
-            <Link to="/createuser">
-                <button>Create User</button>
-            </Link>
         </div>
     )
 }

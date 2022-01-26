@@ -16,12 +16,12 @@ function CreateUser() {
     }
 
     return (
-        <div>
-            <h1>This is the Create User Page</h1>
+        <div className="wrapper">
+            Create User
             <form onSubmit={postData}>
                 <input type="text" name="email" placeholder="email"/>
-                <input type="password" name="password" placeholder="password"/>
-                <button>Submit</button>
+                <input type="text" name="password" placeholder="password"/>
+                <button className="button">Create</button>
             </form>
         </div>
     );
