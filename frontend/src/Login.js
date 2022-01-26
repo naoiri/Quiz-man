@@ -58,10 +58,6 @@ const Login = () => {
                     </div>
                     }
                 </div>
-                <div className="button1">
-                    <Link to="/profile" >
-                        <button className="button">Link to Profile</button></Link>
-                </div>
                 <div className="button2">
                 <Link to="/createuser">
                 <button className="button">Create User</button>
