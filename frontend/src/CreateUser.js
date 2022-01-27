@@ -22,6 +22,7 @@ function CreateUser() {
     return (
         <div className="wrapper">
             Create User
+
             {created?(
                 <div>Account created!
                     <Link to ="/login">
@@ -30,8 +31,8 @@ function CreateUser() {
                 </div>
             ):(
                 <form onSubmit={postData}>
-                    <input type="text" name="email" placeholder="email"/>
-                    <input type="text" name="password" placeholder="password"/>
+                    <input type="email" name="email" placeholder="email"/>
+                    <input type="password" name="password" placeholder="password"/>
                     <button className="button">Create</button>
                 </form>
             )}
