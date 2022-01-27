@@ -77,10 +77,10 @@ const Game = () => {
                 <div className='quiz-container'>
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
                     <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
-                    <div className='option1' onClick={handleAnswer}>A: {questionAnswers[currentIndex]?.answer1}</div>
-                    <div className='option2' onClick={handleAnswer}>B: {questionAnswers[currentIndex]?.answer2}</div>
-                    <div className='option3' onClick={handleAnswer}>C: {questionAnswers[currentIndex]?.answer3}</div>
-                    <div className='option4' onClick={handleAnswer}>D: {questionAnswers[currentIndex]?.answer4}</div>
+                    <div className='option1' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer1}</div>
+                    <div className='option2' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer2}</div>
+                    <div className='option3' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer3}</div>
+                    <div className='option4' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer4}</div>
                     <div>{text}</div>
                 </div>
             )
