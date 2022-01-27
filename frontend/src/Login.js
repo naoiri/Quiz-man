@@ -50,6 +50,7 @@ const Login = () => {
                 <div>{text}</div>
                 <div>
                     {login &&
+
                     <div>
                         <Profile />
                         <Link to="/game">
@@ -57,6 +58,14 @@ const Login = () => {
                         </Link>
                     </div>
                     }
+
+                    <Link to="/game">
+                        <button className="button">Start the game</button>
+                    </Link>}
+                </div>
+                <div className="button1">
+                    <Link to="/profile" >
+                        <button className="button">Link to Profile</button></Link>
                 </div>
                 <div className="button2">
                 <Link to="/createuser">

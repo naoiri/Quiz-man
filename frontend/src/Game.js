@@ -56,21 +56,19 @@ const Game = () => {
         if(scoreBoard){
             updateHighscore()
             return (
-                <div className="score-board">
+                <div className="score-board-win">
                     <h2>Brilliant job, Quizman survived! </h2> <br/>
-                    <FaRegLaughWink className="fa-icons"/>
+                    <FaRegLaughWink className="fa-icons" style={{fontSize:'90px'}}/>
                     <h2>Your score: {score} </h2>
                 </div>
             )
         } else if (timer===0) {
             updateHighscore()
             return (
-                <div className='quiz-container'>
+                <div className="score-board-lose">
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
-                    <div className="score-board">
-                        <h2>Time is up! Quizman is now dead. </h2> <br/>
-                        <h2>Your score: {score} </h2>
-                    </div>
+                    <h2>Time is up! Quizman is now dead. </h2>
+                    <h2>Your score: {score} </h2>
                 </div>
 
             )
@@ -95,9 +93,9 @@ const Game = () => {
             {chosenCategory == null ? (
                 <div className='container'>
                     <h1>Choose category</h1>
-                    <button className='button' onClick={handleCategory}>Movie</button>
-                    <button className='button' onClick={handleCategory}>Sport</button>
-                    <button className='button' onClick={handleCategory}>Biology</button>
+                    <button className='button' style={{marginLeft: '10px'}} onClick={handleCategory}>Movie</button>
+                    <button className='button' style={{marginLeft: '10px'}} onClick={handleCategory}>Sport</button>
+                    <button className='button' style={{marginLeft: '10px'}} onClick={handleCategory}>Biology</button>
                 </div>
             ) : (
                 <div>
