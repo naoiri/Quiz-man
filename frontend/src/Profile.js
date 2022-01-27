@@ -19,7 +19,7 @@ const Profile = () => {
             <div>Highscore: {account?.highscore}</div>
             <div>
                 <Link to="/game">
-                    <button style={{backgroundColor: "#40F934"}}>Start the game</button>
+                    <button style={{backgroundColor: "#40F934"}}>Start a new game</button>
                 </Link>
             </div>
         </div>

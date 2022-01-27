@@ -4,6 +4,7 @@ import {useState} from "react";
 import React, {useEffect} from "react";
 import Animation from "./Animation";
 import {FaRegLaughWink} from 'react-icons/fa';
+import {Link} from 'react-router-dom';
 
 
 const Game = () => {
@@ -60,6 +61,9 @@ const Game = () => {
                     <h2>Brilliant job, Quizman survived! </h2> <br/>
                     <FaRegLaughWink className="fa-icons" style={{fontSize:'90px'}}/>
                     <h2>Your score: {score} </h2>
+                    <Link to="/profile">
+                        <button>Go to your profile page</button>
+                    </Link>
                 </div>
             )
         } else if (timer===0) {
@@ -69,6 +73,9 @@ const Game = () => {
                     <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
                     <h2>Time is up! Quizman is now dead. </h2>
                     <h2>Your score: {score} </h2>
+                    <Link to="/profile">
+                        <button>Go to your profile page</button>
+                    </Link>
                 </div>
 
             )

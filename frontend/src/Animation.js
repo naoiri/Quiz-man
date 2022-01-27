@@ -30,7 +30,7 @@ function Animation(props) {
                     )
                 } else if (counter <= 30) {
                     return (
-                        <FaRegFrownOpen className="frown" />
+                        <FaRegSmile className="smile" />
                     )
                 } else if (counter <= 40) {
                     return (
