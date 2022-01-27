@@ -34,18 +34,22 @@ function CreateQuestion() {
 
     return (
         <div>
-            <h1>This is the Create Question Page</h1>
+            <h1>Create your own question</h1>
+            <div className="container">
             <form onSubmit={postData}>
                 <input type="number" name="category" placeholder="category" min="1" max="3"/>
                 <div>1=Film, 2=Sport, 3=Biology</div>
+                <label>Question</label>
                 <input type="text" name="question" placeholder="question"/>
                 <input type="text" name="answer1" placeholder="answer1"/>
                 <input type="text" name="answer2" placeholder="answer2"/>
                 <input type="text" name="answer3" placeholder="answer3"/>
                 <input type="text" name="answer4" placeholder="answer4"/>
                 <input type="number" name="correctanswer" placeholder="correct answer" min="1" max="4"/>
-                <button>Submit</button>
+                <button className='button'>Submit</button>
             </form>
+                
+            </div>
         </div>
     );
 }

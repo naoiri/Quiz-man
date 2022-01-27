@@ -50,7 +50,7 @@ const Login = () => {
                 <div>
                     {login &&
                     <Link to="/game">
-                        <button style={{backgroundColor: "#40F934"}}>Start the game</button>
+                        <button className="button">Start the game</button>
                     </Link>}
                 </div>
                 <div className="button1">
