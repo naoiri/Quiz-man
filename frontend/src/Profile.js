@@ -15,11 +15,11 @@ const Profile = () => {
 
     return (
         <div>
-            <div>Your account: {account?.email}</div>
-            <div>Highscore: {account?.highscore}</div>
+            <div style={{fontSize:"20px"}}>Your account: {account?.email}</div>
+            <div style={{fontSize:"20px"}}>Highscore: {account?.highscore}</div>
             <div>
                 <Link to="/game">
-                    <button style={{backgroundColor: "#40F934"}}>Start a new game</button>
+                    <button style={{backgroundColor: "#40F934", fontSize:"20px"}}>Start a new game</button>
                 </Link>
             </div>
         </div>
