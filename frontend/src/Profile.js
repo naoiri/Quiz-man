@@ -14,9 +14,8 @@ const Profile = () => {
 
     return (
         <div>
-           <h1>This is the profile page</h1>
-            <h1>{account?.email}</h1>
-            <h1>{account?.highscore}</h1>
+            <div>Your account: {account?.email}</div>
+            <div>Highscore: {account?.highscore}</div>
         </div>
     )
 

@@ -1,10 +1,11 @@
 import React from "react";
-
+import {Link} from 'react-router-dom';
 function CreateQuestion() {
 
     const axios = require('axios');
     let cid;
     let correctAnswer;
+    let create = false;
 
     async function postData(e) {
 
@@ -30,6 +31,9 @@ function CreateQuestion() {
             answer4: e.target.answer4.value,
             correctAnswer: correctAnswer
         })
+
+        create = true;
+
     }
 
     return (
@@ -48,6 +52,11 @@ function CreateQuestion() {
                 <input type="number" name="correctanswer" placeholder="correct answer" min="1" max="4"/>
                 <button className='button'>Submit</button>
             </form>
+
+            <Link to="/login">
+                <button className="button">To Login page</button>
+            </Link>
+
                 
             </div>
         </div>
