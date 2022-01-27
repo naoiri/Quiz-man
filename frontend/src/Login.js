@@ -44,7 +44,10 @@ const Login = () => {
         <div className="wrapper">
             <form onSubmit={handleSubmit}>
                 {login ? (
-                    <Profile />
+                    <div style={{fontSize:"20px"}}>Welcome!
+                        <Profile />
+                    </div>
+
                 ):(
                     <div>
                         <input type="email" name="email" placeholder="email"/>
