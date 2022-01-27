@@ -61,7 +61,7 @@ const Login = () => {
 
                     <Link to="/game">
                         <button className="button">Start the game</button>
-                    </Link>}
+                    </Link>
                 </div>
                 <div className="button1">
                     <Link to="/profile" >
