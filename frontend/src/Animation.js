@@ -3,7 +3,7 @@ import {FaRegSmile, FaRegMeh, FaRegFrownOpen, FaRegFlushed, FaRegDizzy, FaSkull}
 
 function Animation(props) {
 
-    const [counter, setCounter] = useState(5);
+    const [counter, setCounter] = useState(50);
 
     useEffect(() => {
         const timer =
