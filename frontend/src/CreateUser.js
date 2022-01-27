@@ -19,8 +19,8 @@ function CreateUser() {
         <div className="wrapper">
             Create User
             <form onSubmit={postData}>
-                <input type="text" name="email" placeholder="email"/>
-                <input type="text" name="password" placeholder="password"/>
+                <input type="email" name="email" placeholder="email"/>
+                <input type="password" name="password" placeholder="password"/>
                 <button className="button">Create</button>
             </form>
         </div>

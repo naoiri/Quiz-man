@@ -1,3 +1,4 @@
+import "./CreateQuestion.css"
 import React from "react";
 import {Link} from 'react-router-dom';
 function CreateQuestion() {
@@ -39,7 +40,7 @@ function CreateQuestion() {
     return (
         <div>
             <h1>Create your own question</h1>
-            <div className="container">
+            <div className="question-container">
             <form onSubmit={postData}>
                 <input type="number" name="category" placeholder="category" min="1" max="3"/>
                 <div>1=Film, 2=Sport, 3=Biology</div>
