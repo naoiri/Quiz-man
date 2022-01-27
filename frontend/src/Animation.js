@@ -3,7 +3,7 @@ import {FaRegSmile, FaRegMeh, FaRegFrownOpen, FaRegFlushed, FaRegDizzy, FaSkull}
 
 function Animation(props) {
 
-    const [counter, setCounter] = useState(5);
+    const [counter, setCounter] = useState(30);
 
     useEffect(() => {
         const timer =
@@ -30,7 +30,7 @@ function Animation(props) {
                     )
                 } else if (counter <= 30) {
                     return (
-                        <FaRegFrownOpen className="frown" />
+                        <FaRegSmile className="smile" />
                     )
                 } else if (counter <= 40) {
                     return (

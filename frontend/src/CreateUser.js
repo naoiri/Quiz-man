@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
+import {Link} from 'react-router-dom';
 
 function CreateUser() {
     const axios = require('axios');
+    const [created, setCreated] = useState(false);
+
     async function postData(e) {
         const email = e.target.email.value;
         const removeExtraSpace = (s) => s.trim().split(/ +/).join('');
@@ -13,16 +16,27 @@ function CreateUser() {
         }).then(function (response) {
             console.log(response);
         })
+        setCreated(true)
     }
 
     return (
         <div className="wrapper">
             Create User
-            <form onSubmit={postData}>
-                <input type="email" name="email" placeholder="email"/>
-                <input type="password" name="password" placeholder="password"/>
-                <button className="button">Create</button>
-            </form>
+
+            {created?(
+                <div>Account created!
+                    <Link to ="/login">
+                        <button className="button">Login</button>
+                    </Link>
+                </div>
+            ):(
+                <form onSubmit={postData}>
+                    <input type="email" name="email" placeholder="email"/>
+                    <input type="password" name="password" placeholder="password"/>
+                    <button className="button">Create</button>
+                </form>
+            )}
+
         </div>
     );
 }
