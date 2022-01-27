@@ -43,26 +43,26 @@ const Login = () => {
     return (
         <div className="wrapper">
             <form onSubmit={handleSubmit}>
-                <input type="email" name="email" placeholder="email"/>
-                <input type="password" name="password" placeholder="password"/>
-    
-                <button className="button">Login</button>
-                <div>{text}</div>
-                <div>
-                    {login &&
+                {login ? (
+                    <Profile />
+                ):(
                     <div>
-                        <Profile />
-                        <Link to="/game">
-                            <button style={{backgroundColor: "#40F934"}}>Start the game</button>
-                        </Link>
+                        <input type="email" name="email" placeholder="email"/>
+                        <input type="password" name="password" placeholder="password"/>
+
+                        <button className="button">Login</button>
+                        <div className="button2">
+                            <Link to="/createuser">
+                                <button className="button">Create User</button>
+                            </Link>
+                        </div>
+                        <div>{text}</div>
                     </div>
-                    }
-                </div>
-                <div className="button2">
-                <Link to="/createuser">
-                <button className="button">Create User</button>
-                </Link>
-                </div>
+
+                )}
+
+
+
             </form>
         </div>
     )
