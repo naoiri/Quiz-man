@@ -27,6 +27,7 @@
     height: 60px;
     border: 3px black solid;
     padding: 20px;
+    font-size: 30px;
 }
 
 .option1 {
@@ -35,6 +36,7 @@
     grid-row: 5/13;
     height: 60px;
     background-color: white;
+    font-size: 25px;
 }
 
 .option1:hover{
@@ -59,6 +61,7 @@
     grid-row: 5/13;
     height: 60px;
     background-color: white;
+    font-size: 25px;
 }
 
 .option3 {
@@ -67,6 +70,7 @@
     height: 60px;
     grid-row: 13/16;
     background-color: white;
+    font-size: 25px;
 }
 
 .option4 {
@@ -75,6 +79,7 @@
     height: 60px;
     grid-row: 13/16;
     background-color: white;
+    font-size: 25px;
 }
 
 .score-board-win {
@@ -82,7 +87,7 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 250px;
+    height: 300px;
     transform: translate(-50%, -50%);
     padding: 20px;
     border: 5px black solid;

@@ -62,7 +62,7 @@ const Game = () => {
                     <FaRegLaughWink className="fa-icons" style={{fontSize:'90px'}}/>
                     <h2>Your score: {score} </h2>
                     <Link to="/profile">
-                        <button>Go to your profile page</button>
+                        <button className="button">Go to your profile page</button>
                     </Link>
                 </div>
             )
@@ -74,7 +74,7 @@ const Game = () => {
                     <h2>Time is up! Quizman is now dead. </h2>
                     <h2>Your score: {score} </h2>
                     <Link to="/profile">
-                        <button>Go to your profile page</button>
+                        <button className="button">Go to your profile page</button>
                     </Link>
                 </div>
 
