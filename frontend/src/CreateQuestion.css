@@ -1,0 +1,10 @@
+.container{
+    background-color: lavenderblush;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 250px;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 5px black solid;
+}​
