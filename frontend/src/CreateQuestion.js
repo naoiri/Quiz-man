@@ -6,7 +6,6 @@ function CreateQuestion() {
     const axios = require('axios');
     let cid;
     let correctAnswer;
-    let create = false;
 
     async function postData(e) {
 
@@ -32,8 +31,6 @@ function CreateQuestion() {
             answer4: e.target.answer4.value,
             correctAnswer: correctAnswer
         })
-
-        create = true;
 
     }
 
