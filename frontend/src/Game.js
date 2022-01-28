@@ -1,115 +1,121 @@
-import { FaLaughBeam } from 'react-icons/fa';
-import { FaSmile } from 'react-icons/fa';
-import { FaGrinBeamSweat } from 'react-icons/fa';
+import './Test.css';
+import Axios from 'axios';
+import {useState} from "react";
+import React, {useEffect} from "react";
+import Animation from "./Animation";
+import {FaRegLaughWink} from 'react-icons/fa';
+import {Link} from 'react-router-dom';
 
-import { IconContext } from "react-icons";
-
-import { useState } from "react";
 
 const Game = () => {
 
-    const [text, setText] = useState('Answer here')
-    const checkAnswer = (e) => {
+    const [timer, setTimer] = useState();
 
-        if(e.target.innerText === 'Apa'){
-            setText('Rätt!')
+    const [url, setUrl] = useState('')
+    const [chosenCategory, setChosenCategory] = useState(null)
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [text, setText] = useState("");
+    const [scoreBoard, showScoreBoard] = useState(false)
+    const [questionAnswers, setQuestionAnswers] = useState([])
+    const [score, setScore] = useState(0)
+
+    useEffect(() => {
+        Axios.get(url).then(response => {
+            setQuestionAnswers(response.data.questionAnswers)
+
+        })
+    }, [url])
+
+    const handleAnswer = (e) => {
+        if (e.target.innerText === questionAnswers[currentIndex].correctAnswer?.trim()) {
+            setText("Correct!")
+            setScore(score + 1)
+
         } else {
-            setText('Fel!')
+            setText("Incorrect...")
         }
+
+        const nextIndex = currentIndex + 1;
+
+        if (nextIndex < questionAnswers.length) {
+            setCurrentIndex(nextIndex);
+        } else {
+            showScoreBoard(true)
+        }
+
     }
 
-    const questions = [
-        {
-            questionText: 'What is the capital of France?',
-            answerOptions: [
-                { answerText: 'New York', isCorrect: false },
-                { answerText: 'London', isCorrect: false },
-                { answerText: 'Paris', isCorrect: true },
-                { answerText: 'Dublin', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'Who is CEO of Tesla?',
-            answerOptions: [
-                { answerText: 'Jeff Bezos', isCorrect: false },
-                { answerText: 'Elon Musk', isCorrect: true },
-                { answerText: 'Bill Gates', isCorrect: false },
-                { answerText: 'Tony Stark', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'The iPhone was created by which company?',
-            answerOptions: [
-                { answerText: 'Apple', isCorrect: true },
-                { answerText: 'Intel', isCorrect: false },
-                { answerText: 'Amazon', isCorrect: false },
-                { answerText: 'Microsoft', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: '1', isCorrect: false },
-                { answerText: '4', isCorrect: false },
-                { answerText: '6', isCorrect: false },
-                { answerText: '7', isCorrect: true },
-            ],
-        },
-    ];
+    const handleCategory = (e) => {
+        const category = e.target.innerText.toLowerCase();
+        setUrl('http://localhost:8080/questionAnswers/' + category);
+        setChosenCategory(category);
+    }
+    async function updateHighscore(){
+        Axios.patch('http://localhost:8080/accounts/'+localStorage.getItem('userId')+ '/'+ score)
+    }
+    const gameAreaSwitch = () =>{ //This function returns a component
+        if(scoreBoard){
+            updateHighscore()
+            return (
+                <div className="score-board-win">
+                    <h2>Brilliant job, Quizman survived! </h2> <br/>
+                    <FaRegLaughWink className="fa-icons" style={{fontSize:'90px'}}/>
+                    <h2>Your score: {score} </h2>
+                    <Link to="/profile">
+                        <button className="button">Go to your profile page</button>
+                    </Link>
+                </div>
+            )
+        } else if (timer===0) {
+            updateHighscore()
+            return (
+                <div className="score-board-lose">
+                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
+                    <h2>Time is up! Quizman is now dead. </h2>
+                    <h2>Your score: {score} </h2>
+                    <Link to="/profile">
+                        <button className="button">Go to your profile page</button>
+                    </Link>
+                </div>
+
+            )
+        } else {
+            return (
+                <div className='quiz-container'>
+                    <Animation setValue={setTimer} />{/*Receives timer data from child component(Animation.js)*/}
+                    <div className='question-text'>{questionAnswers[currentIndex]?.question}</div>
+                    <div className='option1' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer1}</div>
+                    <div className='option2' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer2}</div>
+                    <div className='option3' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer3}</div>
+                    <div className='option4' onClick={handleAnswer}>{questionAnswers[currentIndex]?.answer4}</div>
+                    <div>{text}</div>
+                </div>
+            )
+        }
+
+    }
 
     return (
-        <div className= "Game" style={{ fontSize: "30px" }}>
-            
-            <div className="figure" style={{
-                fontSize: "30px",
-                marginBottom: "10px"
-            }}>Figure Area!
-                <IconContext.Provider value={{ color: "#ff6b6b", size: "50px", backgroundColor: "red" }}>
-                    <div>
-                        <FaLaughBeam />
-                        <FaSmile />
-                        <FaGrinBeamSweat />
-                    </div>
-                </IconContext.Provider>
-               
-               
-            </div>
-            <div className="question"> 
-                <p >Vad heter apan?</p>
-            </div>
-            <div className="text">
-               <button onClick={(e)=> checkAnswer(e)}>Apa</button>
-               <button onClick={(e)=> checkAnswer(e)}>Bpa</button>
-               <button onClick={(e)=> checkAnswer(e)}>Cpa</button>
-               <button onClick={(e)=> checkAnswer(e)}>Dpa</button>
-               <p>{text}</p>
-
-            </div>
-            <div className='app'>
-            {/* HINT: replace "false" with  oncklick logic to display the 
-      score when the user has answered all the questions */}
-            {false ? (
-                <div className='score-section'>You scored 1 out of {questions.length}</div>
+        <div>
+            {chosenCategory == null ? (
+                <div className='container'>
+                    <h1>Choose category</h1>
+                    <button className='button' style={{marginLeft: '10px'}} onClick={handleCategory}>Movie</button>
+                    <button className='button' style={{marginLeft: '10px'}} onClick={handleCategory}>Sport</button>
+                    <button className='button' style={{marginLeft: '10px'}} onClick={handleCategory}>Biology</button>
+                </div>
             ) : (
-                <>
-                    <div className='question-section'>
-                        <div className='question-count'>
-                            <span>Question 1</span>/{questions.length}
-                        </div>
-                        <div className='question-text'>This is where the question text should go</div>
+                <div>
+                    <h1>Category: {chosenCategory}</h1>
+
+                    <div className="grid-container">
+                        {gameAreaSwitch()}
                     </div>
-                    <div className='answer-section'>
-                        <button>Answer 1</button>
-                        <button>Answer 2</button>
-                        <button>Answer 3</button>
-                        <button>Answer 4</button>
-                    </div>
-                </>
+                </div>
+
             )}
-        </div>
-        </div>
 
-    );
+        </div>
+    )
 }
-
 export default Game;

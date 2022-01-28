@@ -1,19 +1,18 @@
-import Navbar from './Navbar';
+
 import Login from './Login';
-import Game from './Game';
-import Category from './Category';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Difficulty from './Difficulty';
-import Account from './Account';
+import Game from './Game';
+import CreateUser from './CreateUser';
+import Profile from "./Profile"
+import CreateQuestion from "./CreateQuestion";
 
 function App() {
 
   return (
     <Router>
       <div className="App">
-        <Navbar/>
-        
         <div className="content">
           
           <Switch>
@@ -23,8 +22,8 @@ function App() {
             <Route exact path="/login" >
               <Login />
             </ Route>
-            <Route exact path="/category">
-              <Category />
+            <Route exact path="/createuser">
+              <CreateUser />
             </Route>
             <Route exact path="/difficulty">
               <Difficulty />
@@ -32,10 +31,12 @@ function App() {
             <Route exact path="/game">
               <Game />
             </Route>
-            <Route exact path="/account">
-              <Account />
+            <Route exact path="/profile">
+              <Profile />
             </Route>
-
+            <Route exact path="/createquestion">
+              <CreateQuestion />
+            </Route>
           </Switch>
           
         </div>   

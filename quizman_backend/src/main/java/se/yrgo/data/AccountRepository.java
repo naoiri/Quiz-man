@@ -6,4 +6,5 @@ import se.yrgo.domain.Account;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
+     Account findAccountByEmail(String email);
 }
